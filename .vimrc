@@ -76,6 +76,7 @@ set si "Smart indent
 set wrap "Wrap lines
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "Vundle 
+"git@github.com:gmarik/vundle.git ~/.vim/bundle/vundle
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set nocompatible               " be iMproved
 set rtp+=~/.vim/bundle/vundle/
