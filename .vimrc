@@ -73,6 +73,12 @@ set tw=100
 set ai "Auto indent
 set si "Smart indent
 set wrap "Wrap lines
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"Neocomplache
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+let g:neocomplcache_enable_at_startup = 1
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "Vundle 
 "git clone git://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
@@ -88,3 +94,7 @@ Bundle 'Rip-Rip/clang_complete'
 Bundle 'scrooloose/nerdtree'
 Bundle 'scrooloose/syntastic'
 Bundle 'scrooloose/nerdcommenter'
+Bundle 'jansenm/vim-cmake'
+Bundle 'Shougo/neocomplcache.vim'
+Bundle 'Shougo/unite.vim'
+Bundle 'thinca/vim-ref'
