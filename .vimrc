@@ -1,4 +1,3 @@
-
 " Sets how many lines of history VIM has to remember
 set history=700
 
@@ -76,7 +75,7 @@ set si "Smart indent
 set wrap "Wrap lines
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "Vundle 
-"git@github.com:gmarik/vundle.git ~/.vim/bundle/vundle
+"git clone git://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set nocompatible               " be iMproved
 set rtp+=~/.vim/bundle/vundle/
