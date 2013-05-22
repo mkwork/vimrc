@@ -44,7 +44,7 @@ set mat=2
 " Enable syntax highlighting
 syntax enable
 
-" colorscheme desert
+colorscheme desert
 set background=dark
 
 " Set utf8 as standard encoding and en_US as the standard language
