@@ -86,4 +86,5 @@ call vundle#rc()
 Bundle 'gmarik/vundle'
 Bundle 'Rip-Rip/clang_complete'
 Bundle 'scrooloose/nerdtree'
+Bundle 'scrooloose/syntastic'
 Bundle 'scrooloose/nerdcommenter'
