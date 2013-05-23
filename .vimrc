@@ -4,6 +4,9 @@
 colorscheme desert
 set background=dark
 
+"Column
+set colorcolumn=79
+
 " Show raw numbers always
 set number
 
