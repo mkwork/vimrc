@@ -90,9 +90,13 @@ set si "Smart indent
 set wrap "Wrap lines
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"Unite
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"Files search 
+noremap <C-K> :Unite -input=**/**/ file <CR> gg $
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "Neocomplache
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
 let g:neocomplcache_enable_at_startup = 1
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "Vundle 
@@ -112,4 +116,5 @@ Bundle 'scrooloose/nerdcommenter'
 Bundle 'jansenm/vim-cmake'
 Bundle 'Shougo/neocomplcache.vim'
 Bundle 'Shougo/unite.vim'
+Bundle 'osyo-manga/neocomplcache-clang_complete'
 Bundle 'thinca/vim-ref'
