@@ -33,7 +33,6 @@ syntax enable
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Sets how many lines of history VIM has to remember
 set history=700
-set foldmethod=syntax
 
 " Enable filetype plugins
 filetype plugin on
@@ -94,7 +93,7 @@ set wrap "Wrap lines
 "Unite
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "Files search 
-noremap <C-K> :Unite -input=./**/ file <CR> gg $
+noremap <C-K> :Unite -input=./**/ file <CR> gg $ i
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "Neocomplache
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
