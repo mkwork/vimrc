@@ -134,11 +134,23 @@ let g:clang_snippets = 1 " switch on snippets
 "git clone git://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set nocompatible               " be iMproved
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+syntax enable on " turn on syntax highlighting
 
-" let Vundle manage Vundle
-" required! 
+" set the bundle root, and vundle directory
+let root = '~/.vim/bundle'
+let src = 'http://github.com/gmarik/vundle.git'
+" clone vundle if it's missing
+if !isdirectory(expand(root, 1).'/vundle')
+    exec '!git clone '.src.' '.shellescape(expand(root.'/vundle', 1))
+endif
+
+" immediately make vundle accessible in the rtp
+exec 'set rtp+='.root.'/vundle'
+
+" initialise vundle's boot script
+call vundle#rc(root)
+filetype off " turn off filetype settings, which is required for vundle
+"let Vundle manage Vundle
 Bundle 'gmarik/vundle'
 Bundle 'Rip-Rip/clang_complete'
 Bundle 'scrooloose/nerdtree'
@@ -153,3 +165,4 @@ Bundle 'majutsushi/tagbar'
 Bundle 'wesleyche/SrcExpl'
 Bundle 'jdonaldson/vaxe'
 Bundle 'Lokaltog/vim-powerline'
+filetype plugin indent on " re-enable plugin settings
