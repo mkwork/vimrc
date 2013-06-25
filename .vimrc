@@ -107,6 +107,10 @@ endif
 let g:neocomplcache_omni_patterns.haxe = '\v([\]''"\)]|\w|(^\s*))(\.|\()'
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"Powerline
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"let g:Powerline_symbols = 'fancy'
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "clang_complete
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:clang_snippets = 1 " switch on snippets
@@ -133,3 +137,4 @@ Bundle 'thinca/vim-ref'
 Bundle 'majutsushi/tagbar'
 Bundle 'wesleyche/SrcExpl'
 Bundle 'jdonaldson/vaxe'
+Bundle 'Lokaltog/vim-powerline'
