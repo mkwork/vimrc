@@ -97,7 +97,15 @@ noremap <C-K> :Unite -input=./**/ file <CR> gg $ i
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "Neocomplache
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:neocomplcache_enable_at_startup = 1
+let g:neocomplcache_enable_at_startup = 1 " always load neocc
+let g:neocomplcache_enable_auto_select = 1 " auto-popup!
+if !exists('g:neocomplcache_omni_patterns')
+    let g:neocomplcache_omni_patterns = {} " set a default pattern dict
+endif
+
+" this tells neocc when to try for completions... after '.', '(', etc.
+let g:neocomplcache_omni_patterns.haxe = '\v([\]''"\)]|\w|(^\s*))(\.|\()'
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "clang_complete
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -124,3 +132,4 @@ Bundle 'osyo-manga/neocomplcache-clang_complete'
 Bundle 'thinca/vim-ref'
 Bundle 'majutsushi/tagbar'
 Bundle 'wesleyche/SrcExpl'
+Bundle 'jdonaldson/vaxe'
