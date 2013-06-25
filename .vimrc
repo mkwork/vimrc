@@ -111,6 +111,21 @@ let g:neocomplcache_omni_patterns.haxe = '\v([\]''"\)]|\w|(^\s*))(\.|\()'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "let g:Powerline_symbols = 'fancy'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"Haxe
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"You'll need to define some patterns for ctags in order for it to work with Haxe. Put these lines in
+"your .ctags file in your home directory:
+"--langdef=haxe
+"--langmap=haxe:.hx
+"--regex-haxe=/^[ \t]*((@:?[a-zA-Z]+) )*((macro|private|public|static|inline) )*function[ \t]+([A-Za-z0-9_]+)/\5/f,function,functions/
+"--regex-haxe=/^[ \t]*((@:?[a-zA-Z]+) )*((private|public|static|inline) )+var[ \t]+([A-Za-z0-9_]+)/\5/v,variable,variables/
+"--regex-haxe=/^[ \t]*package[ \t]*([A-Za-z0-9_\.]+)/\1/p,package/
+"--regex-haxe=/^[ \t]*((@:?[a-zA-Z]+) )*(extern[ \t]+)?class[ \t]+([A-Za-z0-9_]+)[ \t]*[^\{]*/\4/c,class,classes/
+"--regex-haxe=/^[ \t]*((@:?[a-zA-Z]+) )*(extern[ \t]+)?interface[ \t]+([A-Za-z0-9_]+)/\4/i,interface/
+"--regex-haxe=/^[ \t]*typedef[ \t]+([A-Za-z0-9_]+)/\1/t,typedef/
+"--regex-haxe=/^[ \t]*enum[ \t]+([A-Za-z0-9_]+)/\1/e,enum/
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "clang_complete
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:clang_snippets = 1 " switch on snippets
