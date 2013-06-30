@@ -1,8 +1,8 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Apperance
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-colorscheme desert
-set background=dark
+colorscheme torte
+"set background=dark
 
 "Column
 set colorcolumn=79
@@ -40,6 +40,7 @@ filetype indent on
 
 " Set to auto read when a file is changed from the outside
 set autoread
+set autowrite
 
 " Ignore compiled files
 set wildignore=*.o,*~,*.pyc
@@ -166,3 +167,4 @@ Bundle 'wesleyche/SrcExpl'
 Bundle 'jdonaldson/vaxe'
 Bundle 'Lokaltog/vim-powerline'
 filetype plugin indent on " re-enable plugin settings
+hi PmenuSel   ctermfg=White	   ctermbg=DarkBlue  guifg=White  guibg=DarkBlue
