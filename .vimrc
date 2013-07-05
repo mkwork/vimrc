@@ -5,7 +5,9 @@ colorscheme torte
 "set background=dark
 
 "Column
-set colorcolumn=79
+if version >= 730
+    set colorcolumn=79
+endif
 
 " Show raw numbers always
 set number
