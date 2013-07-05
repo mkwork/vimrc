@@ -168,5 +168,6 @@ Bundle 'majutsushi/tagbar'
 Bundle 'wesleyche/SrcExpl'
 Bundle 'jdonaldson/vaxe'
 Bundle 'Lokaltog/vim-powerline'
+Bundle 'DoxygenToolkit.vim'
 filetype plugin indent on " re-enable plugin settings
 hi PmenuSel   ctermfg=White	   ctermbg=DarkBlue  guifg=White  guibg=DarkBlue
