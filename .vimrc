@@ -5,7 +5,9 @@ colorscheme default
 set background=dark
 
 "Column
-set colorcolumn=79
+if version >= 730
+    set colorcolumn=79
+endif
 
 " Show raw numbers always
 set number
@@ -171,6 +173,7 @@ Bundle 'jdonaldson/vaxe'
 Bundle 'Lokaltog/vim-powerline'
 Bundle 'ruby.vim'
 Bundle 'tpope/vim-rails'
+Bundle 'DoxygenToolkit.vim'
 filetype plugin indent on " re-enable plugin settings
 hi PmenuSel   ctermfg=White	   ctermbg=DarkBlue  guifg=White  guibg=DarkBlue
 set t_Co=256 " Explicitly tell Vim that the terminal supports 256 colors
