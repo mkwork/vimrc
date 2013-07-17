@@ -169,6 +169,8 @@ Bundle 'majutsushi/tagbar'
 Bundle 'wesleyche/SrcExpl'
 Bundle 'jdonaldson/vaxe'
 Bundle 'Lokaltog/vim-powerline'
+Bundle 'ruby.vim'
+Bundle 'tpope/vim-rails'
 filetype plugin indent on " re-enable plugin settings
 hi PmenuSel   ctermfg=White	   ctermbg=DarkBlue  guifg=White  guibg=DarkBlue
 set t_Co=256 " Explicitly tell Vim that the terminal supports 256 colors
