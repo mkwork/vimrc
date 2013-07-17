@@ -1,8 +1,8 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Apperance
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-colorscheme torte
-"set background=dark
+colorscheme default
+set background=dark
 
 "Column
 set colorcolumn=79
@@ -125,7 +125,10 @@ let g:neocomplcache_omni_patterns.haxe = '\v([\]''"\)]|\w|(^\s*))(\.|\()'
 "--regex-haxe=/^[ \t]*((@:?[a-zA-Z]+) )*(extern[ \t]+)?interface[ \t]+([A-Za-z0-9_]+)/\4/i,interface/
 "--regex-haxe=/^[ \t]*typedef[ \t]+([A-Za-z0-9_]+)/\1/t,typedef/
 "--regex-haxe=/^[ \t]*enum[ \t]+([A-Za-z0-9_]+)/\1/e,enum/
-
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"Tagbar
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:tagbar_width = 33
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "clang_complete
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -168,3 +171,4 @@ Bundle 'jdonaldson/vaxe'
 Bundle 'Lokaltog/vim-powerline'
 filetype plugin indent on " re-enable plugin settings
 hi PmenuSel   ctermfg=White	   ctermbg=DarkBlue  guifg=White  guibg=DarkBlue
+set t_Co=256 " Explicitly tell Vim that the terminal supports 256 colors
