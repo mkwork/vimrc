@@ -95,6 +95,10 @@ set wrap "Wrap lines
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "Unite
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"Html
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
 "Files search 
 noremap <C-K> :Unite -input=./**/ file <CR> gg $ i
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -174,6 +178,9 @@ Bundle 'Lokaltog/vim-powerline'
 Bundle 'ruby.vim'
 Bundle 'tpope/vim-rails'
 Bundle 'DoxygenToolkit.vim'
+Bundle 'mattn/zencoding-vim'
+Bundle 'xml.vim'
+Bundle 'MatchTag'
 filetype plugin indent on " re-enable plugin settings
 hi PmenuSel   ctermfg=White	   ctermbg=DarkBlue  guifg=White  guibg=DarkBlue
 set t_Co=256 " Explicitly tell Vim that the terminal supports 256 colors
