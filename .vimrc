@@ -131,6 +131,15 @@ let g:neocomplcache_omni_patterns.haxe = '\v([\]''"\)]|\w|(^\s*))(\.|\()'
 "--regex-haxe=/^[ \t]*((@:?[a-zA-Z]+) )*(extern[ \t]+)?interface[ \t]+([A-Za-z0-9_]+)/\4/i,interface/
 "--regex-haxe=/^[ \t]*typedef[ \t]+([A-Za-z0-9_]+)/\1/t,typedef/
 "--regex-haxe=/^[ \t]*enum[ \t]+([A-Za-z0-9_]+)/\1/e,enum/
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"Markdown
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+augroup markdown
+    au!
+    au BufNewFile,BufRead *.md,*.markdown setlocal filetype=ghmarkdown
+augroup END
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "Tagbar
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -181,6 +190,8 @@ Bundle 'DoxygenToolkit.vim'
 Bundle 'mattn/zencoding-vim'
 Bundle 'xml.vim'
 Bundle 'MatchTag'
+Bundle 'jtratner/vim-flavored-markdown'
+Bundle 'vimwiki/vimwiki'
 filetype plugin indent on " re-enable plugin settings
 hi PmenuSel   ctermfg=White	   ctermbg=DarkBlue  guifg=White  guibg=DarkBlue
 set t_Co=256 " Explicitly tell Vim that the terminal supports 256 colors
