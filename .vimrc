@@ -33,6 +33,8 @@ syntax enable
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Features 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Set viminfo for fast restore on work
+set viminfo='100,<50,s10,h
 " Sets how many lines of history VIM has to remember
 set history=700
 
