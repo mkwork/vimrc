@@ -5,7 +5,7 @@ colorscheme default
 set background=dark
 
 "Column
-if version >= 730
+if version >= 703
     set colorcolumn=79
 endif
 
@@ -33,6 +33,8 @@ syntax enable
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Features 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Set viminfo for fast restore on work
+set viminfo='100,<50,s10,h
 " Sets how many lines of history VIM has to remember
 set history=700
 
