@@ -116,6 +116,11 @@ endif
 let g:neocomplcache_omni_patterns.haxe = '\v([\]''"\)]|\w|(^\s*))(\.|\()'
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"Code review
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:CodeReviewer_reviewer='Maxim Kot<work.maydjin@gmail.com>'
+let g:CodeReviewer_reviewFile='./review.rev'
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "Powerline
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "let g:Powerline_symbols = 'fancy'
@@ -194,6 +199,9 @@ Bundle 'xml.vim'
 Bundle 'MatchTag'
 Bundle 'jtratner/vim-flavored-markdown'
 Bundle 'vimwiki/vimwiki'
+Bundle 'tkztmk/vim-vala'
+Bundle 'wdicarlo/vim-notebook'
+Bundle 'CodeReviewer.vim'
 filetype plugin indent on " re-enable plugin settings
 hi PmenuSel   ctermfg=White	   ctermbg=DarkBlue  guifg=White  guibg=DarkBlue
 set t_Co=256 " Explicitly tell Vim that the terminal supports 256 colors
