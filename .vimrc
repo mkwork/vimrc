@@ -110,18 +110,6 @@ nnoremap <silent> <c-k> :FufFile **/<CR>
 let g:fuf_file_exclude = '\v\~$|\.(o|exe|dll|bak|orig|swp|pyc|jpg|png|gif|svg)$|(^|[/\\])(\.(hg|git|bzr)|tmp)($|[/\\])'
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"Neocomplache
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:neocomplcache_enable_at_startup = 1 " always load neocc
-let g:neocomplcache_enable_auto_select = 1 " auto-popup!
-if !exists('g:neocomplcache_omni_patterns')
-    let g:neocomplcache_omni_patterns = {} " set a default pattern dict
-endif
-
-" this tells neocc when to try for completions... after '.', '(', etc.
-let g:neocomplcache_omni_patterns.haxe = '\v([\]''"\)]|\w|(^\s*))(\.|\()'
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "Code review
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:CodeReviewer_reviewer='Maxim Kot<work.maydjin@gmail.com>'
@@ -156,11 +144,8 @@ augroup END
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "Tagbar
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:tagbar_width = 33
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"clang_complete
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:clang_snippets = 1 " switch on snippets
+let g:tagbar_width = 44
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "Vundle 
 "git clone git://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
@@ -184,13 +169,10 @@ call vundle#rc(root)
 filetype off " turn off filetype settings, which is required for vundle
 "let Vundle manage Vundle
 Bundle 'gmarik/vundle'
-Bundle 'Rip-Rip/clang_complete'
 Bundle 'scrooloose/nerdtree'
 Bundle 'scrooloose/syntastic'
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'jansenm/vim-cmake'
-Bundle 'Shougo/neocomplcache.vim'
-Bundle 'osyo-manga/neocomplcache-clang_complete'
 Bundle 'thinca/vim-ref'
 Bundle 'majutsushi/tagbar'
 Bundle 'wesleyche/SrcExpl'
