@@ -203,6 +203,10 @@ Bundle 'tkztmk/vim-vala'
 Bundle 'wdicarlo/vim-notebook'
 Bundle 'CodeReviewer.vim'
 
+" Allow autoclose paired characters like [,] or (,),
+" " and add smart cursor positioning inside it,
+Bundle 'Raimondi/delimitMate'
+
 "Snippets plugins
 Bundle 'garbas/vim-snipmate'
 Bundle 'MarcWeber/vim-addon-mw-utils'
