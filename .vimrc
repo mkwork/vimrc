@@ -103,7 +103,12 @@ set wrap "Wrap lines
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
 "Files search 
+"Keybindings for Fuzzyfinder
 nnoremap <silent> <c-k> :FufFile **/<CR>
+
+"ignore patterns for Fuzzyfinder
+let g:fuf_file_exclude = '\v\~$|\.(o|exe|dll|bak|orig|swp|pyc|jpg|png|gif|svg)$|(^|[/\\])(\.(hg|git|bzr)|tmp)($|[/\\])'
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "Neocomplache
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
