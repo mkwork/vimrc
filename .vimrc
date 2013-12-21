@@ -189,6 +189,7 @@ Bundle 'vimwiki/vimwiki'
 Bundle 'tkztmk/vim-vala'
 Bundle 'wdicarlo/vim-notebook'
 Bundle 'CodeReviewer.vim'
+Bundle 'Valloric/YouCompleteMe.git'
 
 " Allow autoclose paired characters like [,] or (,),
 " " and add smart cursor positioning inside it,
