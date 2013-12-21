@@ -99,14 +99,11 @@ set si "Smart indent
 set wrap "Wrap lines
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"Unite
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "Html
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
 "Files search 
-noremap <C-K> :Unite -input=./**/ file <CR> gg $ i
+nnoremap <silent> <c-k> :FufFile **/<CR>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "Neocomplache
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -188,7 +185,6 @@ Bundle 'scrooloose/syntastic'
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'jansenm/vim-cmake'
 Bundle 'Shougo/neocomplcache.vim'
-Bundle 'Shougo/unite.vim'
 Bundle 'osyo-manga/neocomplcache-clang_complete'
 Bundle 'thinca/vim-ref'
 Bundle 'majutsushi/tagbar'
@@ -206,6 +202,17 @@ Bundle 'vimwiki/vimwiki'
 Bundle 'tkztmk/vim-vala'
 Bundle 'wdicarlo/vim-notebook'
 Bundle 'CodeReviewer.vim'
+
+"Snippets plugins
+Bundle 'garbas/vim-snipmate'
+Bundle 'MarcWeber/vim-addon-mw-utils'
+Bundle 'tomtom/tlib_vim'
+Bundle "honza/vim-snippets"
+
+"Fast search
+Bundle 'vim-scripts/FuzzyFinder'
+Bundle 'vim-scripts/L9'
+
 filetype plugin indent on " re-enable plugin settings
 hi PmenuSel   ctermfg=White	   ctermbg=DarkBlue  guifg=White  guibg=DarkBlue
 set t_Co=256 " Explicitly tell Vim that the terminal supports 256 colors
