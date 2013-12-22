@@ -99,6 +99,10 @@ set si "Smart indent
 set wrap "Wrap lines
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"YouCompleteMe
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+nnoremap <F2> :YcmCompleter GoToDefinitionElseDeclaration<CR>
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "Html
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
