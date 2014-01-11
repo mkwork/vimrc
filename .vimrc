@@ -59,6 +59,9 @@ set ffs=unix,dos,mac
 set path+=include/,,
 set path+=src/,,
 
+" Enchanced for Russian encoding detection
+set fileencodings^=windows-1251
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Search 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
