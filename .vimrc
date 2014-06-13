@@ -176,6 +176,7 @@ exec 'set rtp+='.root.'/vundle'
 " initialise vundle's boot script
 call vundle#rc(root)
 filetype off " turn off filetype settings, which is required for vundle
+
 "let Vundle manage Vundle
 Bundle 'gmarik/vundle'
 Bundle 'scrooloose/nerdtree'
@@ -185,7 +186,6 @@ Bundle 'jansenm/vim-cmake'
 Bundle 'thinca/vim-ref'
 Bundle 'majutsushi/tagbar'
 Bundle 'wesleyche/SrcExpl'
-Bundle 'jdonaldson/vaxe'
 Bundle 'Lokaltog/vim-powerline'
 Bundle 'ruby.vim'
 Bundle 'tpope/vim-rails'
