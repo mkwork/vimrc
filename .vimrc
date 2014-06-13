@@ -37,7 +37,8 @@ syntax enable
 set viminfo='100,<50,s10,h
 " Sets how many lines of history VIM has to remember
 set history=700
-
+" Set paste mode
+set paste
 " Enable filetype plugins
 filetype plugin on
 filetype indent on
@@ -105,6 +106,7 @@ set wrap "Wrap lines
 "YouCompleteMe
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 nnoremap <F2> :YcmCompleter GoToDefinitionElseDeclaration<CR>
+let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/cpp/ycm/.ycm_extra_conf.py'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "Html
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
