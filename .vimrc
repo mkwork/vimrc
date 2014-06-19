@@ -1,7 +1,7 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Apperance
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-colorscheme default
+colorscheme solarized
 set background=dark
 
 "Column
