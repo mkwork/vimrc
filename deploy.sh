@@ -1,6 +1,7 @@
 #!/bin/bash
 #deploy dotfiles
 ln -s `pwd`/.vimrc /home/$USER/
+ln -s `pwd`/.gvimrc /home/$USER/
 ln -s `pwd`/.screenrc /home/$USER/
 
 #deploy solarized scheme
