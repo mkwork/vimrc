@@ -1,7 +1,7 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Apperance
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-colorscheme default
+colorscheme solarized
 set background=dark
 
 "Column
@@ -37,7 +37,8 @@ syntax enable
 set viminfo='100,<50,s10,h
 " Sets how many lines of history VIM has to remember
 set history=700
-
+" Set paste mode
+set paste
 " Enable filetype plugins
 filetype plugin on
 filetype indent on
@@ -105,6 +106,7 @@ set wrap "Wrap lines
 "YouCompleteMe
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 nnoremap <F2> :YcmCompleter GoToDefinitionElseDeclaration<CR>
+let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/cpp/ycm/.ycm_extra_conf.py'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "Html
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -174,6 +176,7 @@ exec 'set rtp+='.root.'/vundle'
 " initialise vundle's boot script
 call vundle#rc(root)
 filetype off " turn off filetype settings, which is required for vundle
+
 "let Vundle manage Vundle
 Bundle 'gmarik/vundle'
 Bundle 'scrooloose/nerdtree'
@@ -183,7 +186,6 @@ Bundle 'jansenm/vim-cmake'
 Bundle 'thinca/vim-ref'
 Bundle 'majutsushi/tagbar'
 Bundle 'wesleyche/SrcExpl'
-Bundle 'jdonaldson/vaxe'
 Bundle 'Lokaltog/vim-powerline'
 Bundle 'ruby.vim'
 Bundle 'tpope/vim-rails'
