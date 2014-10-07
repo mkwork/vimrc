@@ -28,7 +28,7 @@ set mat=2
 set showmatch
 
 " Enable syntax highlighting
-syntax enable
+syntax enable on
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Features 
@@ -164,8 +164,6 @@ let g:tagbar_width = 44
 " be iMproved
 set nocompatible               
 
-" turn on syntax highlighting
-syntax enable on                
 
 " set the bundle root, and vundle directory
 let root = '~/.vim/bundle'
