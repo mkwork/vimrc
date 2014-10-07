@@ -1,7 +1,10 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Apperance
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-colorscheme solarized
+"hi PmenuSel   ctermfg=White	   ctermbg=DarkBlue  guifg=White  guibg=DarkBlue
+" Explicitly tell Vim that the terminal supports 256 colors
+set t_Co=256 
+
 set background=dark
 
 "Column
@@ -158,65 +161,83 @@ augroup END
 let g:tagbar_width = 44
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"Vundle 
-"git clone git://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
+"NeoBundle 
+"git clone git@github.com:Shougo/neobundle.vim.git
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " be iMproved
 set nocompatible               
 
+" Note: Skip initialization for vim-tiny or vim-small.
+if !1 | finish | endif
 
 " set the bundle root, and vundle directory
 let root = '~/.vim/bundle'
-let src = 'http://github.com/gmarik/vundle.git'
-" clone vundle if it's missing
-if !isdirectory(expand(root, 1).'/vundle')
-    exec '!git clone '.src.' '.shellescape(expand(root.'/vundle', 1))
+let src = 'http://github.com/Shougo/neobundle.vim.git'
+
+" clone neobundle if it's missing
+if !isdirectory(expand(root, 1).'/neobundle.vim')
+    exec '!git clone '.src.' '.shellescape(expand(root.'/neobundle.vim', 1))
+endif
+if has('vim_starting')
+    set nocompatible               " Be iMproved
+
+    " Required:
+    set runtimepath+=~/.vim/bundle/neobundle.vim/
 endif
 
-" immediately make vundle accessible in the rtp
-exec 'set rtp+='.root.'/vundle'
+" Required:
+call neobundle#begin(expand('~/.vim/bundle/'))
 
-" initialise vundle's boot script
-call vundle#rc(root)
-filetype off " turn off filetype settings, which is required for vundle
+" Let NeoBundle manage NeoBundle
+" Required:
 
-"let Vundle manage Vundle
-Bundle 'gmarik/vundle'
-Bundle 'scrooloose/nerdtree'
-Bundle 'scrooloose/syntastic'
-Bundle 'scrooloose/nerdcommenter'
-Bundle 'jansenm/vim-cmake'
-Bundle 'thinca/vim-ref'
-Bundle 'majutsushi/tagbar'
-Bundle 'wesleyche/SrcExpl'
-Bundle 'Lokaltog/vim-powerline'
-Bundle 'ruby.vim'
-Bundle 'tpope/vim-rails'
-Bundle 'DoxygenToolkit.vim'
-Bundle 'mattn/zencoding-vim'
-Bundle 'xml.vim'
-Bundle 'MatchTag'
-Bundle 'jtratner/vim-flavored-markdown'
-Bundle 'vimwiki/vimwiki'
-Bundle 'tkztmk/vim-vala'
-Bundle 'wdicarlo/vim-notebook'
-Bundle 'CodeReviewer.vim'
-Bundle 'Valloric/YouCompleteMe.git'
+NeoBundleFetch 'Shougo/neobundle.vim'
+
+" My Bundles here:
+NeoBundle 'scrooloose/nerdtree'
+NeoBundle 'scrooloose/syntastic'
+NeoBundle 'scrooloose/nerdcommenter'
+NeoBundle 'jansenm/vim-cmake'
+NeoBundle 'thinca/vim-ref'
+NeoBundle 'majutsushi/tagbar'
+NeoBundle 'wesleyche/SrcExpl'
+NeoBundle 'Lokaltog/vim-powerline'
+NeoBundle 'ruby.vim'
+NeoBundle 'tpope/vim-rails'
+NeoBundle 'DoxygenToolkit.vim'
+NeoBundle 'mattn/zencoding-vim'
+NeoBundle 'xml.vim'
+NeoBundle 'MatchTag'
+NeoBundle 'jtratner/vim-flavored-markdown'
+NeoBundle 'vimwiki/vimwiki'
+NeoBundle 'tkztmk/vim-vala'
+NeoBundle 'wdicarlo/vim-notebook'
+NeoBundle 'CodeReviewer.vim'
+NeoBundle 'Valloric/YouCompleteMe.git'
 
 " Allow autoclose paired characters like [,] or (,),
 " " and add smart cursor positioning inside it,
-Bundle 'Raimondi/delimitMate'
+NeoBundle 'Raimondi/delimitMate'
 
 "Snippets plugins
-Bundle 'garbas/vim-snipmate'
-Bundle 'MarcWeber/vim-addon-mw-utils'
-Bundle 'tomtom/tlib_vim'
-Bundle "honza/vim-snippets"
+NeoBundle 'garbas/vim-snipmate'
+NeoBundle 'MarcWeber/vim-addon-mw-utils'
+NeoBundle 'tomtom/tlib_vim'
+NeoBundle "honza/vim-snippets"
 
 "Fast search
-Bundle 'vim-scripts/FuzzyFinder'
-Bundle 'vim-scripts/L9'
+NeoBundle 'vim-scripts/FuzzyFinder'
+NeoBundle 'vim-scripts/L9'
+" Refer to |:NeoBundle-examples|.
+" Note: You don't set neobundle setting in .gvimrc!
 
-filetype plugin indent on " re-enable plugin settings
-hi PmenuSel   ctermfg=White	   ctermbg=DarkBlue  guifg=White  guibg=DarkBlue
-set t_Co=256 " Explicitly tell Vim that the terminal supports 256 colors
+call neobundle#end()
+
+" Required:
+filetype plugin indent on
+
+" If there are uninstalled bundles found on startup,
+" this will conveniently prompt you to install them.
+NeoBundleCheck
+
+
