@@ -37,8 +37,10 @@ syntax enable
 set viminfo='100,<50,s10,h
 " Sets how many lines of history VIM has to remember
 set history=700
+
 " Set paste mode
 set paste
+
 " Enable filetype plugins
 filetype plugin on
 filetype indent on
@@ -159,8 +161,11 @@ let g:tagbar_width = 44
 "Vundle 
 "git clone git://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-set nocompatible               " be iMproved
-syntax enable on " turn on syntax highlighting
+" be iMproved
+set nocompatible               
+
+" turn on syntax highlighting
+syntax enable on                
 
 " set the bundle root, and vundle directory
 let root = '~/.vim/bundle'
