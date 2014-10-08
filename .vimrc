@@ -161,6 +161,13 @@ augroup END
 let g:tagbar_width = 44
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"Startify
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:startify_bookmarks = ['~/.vimrc',]
+let g:startify_skiplist = ['vimrc',]
+let g:startify_session_persistence = 1
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "NeoBundle 
 "git clone git@github.com:Shougo/neobundle.vim.git
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -214,6 +221,9 @@ NeoBundle 'tkztmk/vim-vala'
 NeoBundle 'wdicarlo/vim-notebook'
 NeoBundle 'CodeReviewer.vim'
 NeoBundle 'Valloric/YouCompleteMe.git'
+
+" Nice start screen
+NeoBundle 'mhinz/vim-startify'
 
 " Allow autoclose paired characters like [,] or (,),
 " " and add smart cursor positioning inside it,
