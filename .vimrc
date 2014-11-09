@@ -3,6 +3,7 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "hi PmenuSel   ctermfg=White	   ctermbg=DarkBlue  guifg=White  guibg=DarkBlue
 " Explicitly tell Vim that the terminal supports 256 colors
+colorscheme darkblue
 set t_Co=256 
 
 set background=dark
