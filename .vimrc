@@ -105,7 +105,24 @@ if !hasmapto("<Plug>VLToggle")
 endif
 let &cpo = s:save_cpo | unlet s:save_cpo
 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Tab closing 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+function! TabCloseRight(bang)
+    let cur=tabpagenr()
+    while cur < tabpagenr('$')
+        exe 'tabclose' . a:bang . ' ' . (cur + 1)
+    endwhile
+endfunction
 
+function! TabCloseLeft(bang)
+    while tabpagenr() > 1
+        exe 'tabclose' . a:bang . ' 1'
+    endwhile
+endfunction
+
+command! -bang Tabcloseright call TabCloseRight('<bang>')
+command! -bang Tabcloseleft call TabCloseLeft('<bang>')
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Search 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -223,12 +240,13 @@ let src = 'http://github.com/Shougo/neobundle.vim.git'
 if !isdirectory(expand(root, 1).'/neobundle.vim')
     exec '!git clone '.src.' '.shellescape(expand(root.'/neobundle.vim', 1))
 endif
-if has('vim_starting')
-    set nocompatible               " Be iMproved
 
-    " Required:
-    set runtimepath+=~/.vim/bundle/neobundle.vim/
+if has('vim_starting') || has(win32)
+    set nocompatible               " Be iMproved
 endif
+
+" Required:
+set runtimepath+=~/.vim/bundle/neobundle.vim/
 
 " Required:
 call neobundle#begin(expand('~/.vim/bundle/'))
