@@ -10,6 +10,8 @@ ln -s `pwd`/.screenrc /home/$USER/
 ln -s `pwd`/.tmux.conf /home/$USER/
 
 #tmux related
+#make bashr sourcable
+echo 'source ~/.bashrc' >> ~/.bash_profile
 #latest stable tmux
 curl -fsSL https://gist.github.com/shime/5706655/raw/install.sh | sudo bash -e
 #tmux tpm
