@@ -3,7 +3,7 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "hi PmenuSel   ctermfg=White	   ctermbg=DarkBlue  guifg=White  guibg=DarkBlue
 " Explicitly tell Vim that the terminal supports 256 colors
-colorscheme darkblue
+colorscheme pablo
 set t_Co=256 
 
 set background=dark
@@ -174,10 +174,7 @@ let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/cpp/ycm/.ycm_extr
 autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
 "Files search 
 "Keybindings for Fuzzyfinder
-nnoremap <silent> <c-k> :FufFile **/<CR>
-
-"ignore patterns for Fuzzyfinder
-let g:fuf_file_exclude = '\v\~$|\.(o|exe|dll|bak|orig|swp|pyc|jpg|png|gif|svg)$|(^|[/\\])(\.(hg|git|bzr)|tmp)($|[/\\])'
+nnoremap <silent> <c-k>  :Unite file_rec buffer -start-insert <CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "Code review
@@ -293,8 +290,8 @@ NeoBundle 'tomtom/tlib_vim'
 NeoBundle "honza/vim-snippets"
 
 "Fast search
-NeoBundle 'vim-scripts/FuzzyFinder'
 NeoBundle 'vim-scripts/L9'
+NeoBundle 'Shougo/unite.vim'
 " Refer to |:NeoBundle-examples|.
 " Note: You don't set neobundle setting in .gvimrc!
 
