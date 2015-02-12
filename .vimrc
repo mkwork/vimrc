@@ -69,6 +69,9 @@ set path+=src/,,
 " Enchanced for Russian encoding detection
 set fileencodings^=windows-1251
 
+" Man builtin plugin
+runtime! ftplugin/man.vim
+
 " Search for selected text, forwards or backwards.
 " Search for selected text.
 " http://vim.wikia.com/wiki/VimTip171
