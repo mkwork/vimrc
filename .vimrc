@@ -3,10 +3,10 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "hi PmenuSel   ctermfg=White	   ctermbg=DarkBlue  guifg=White  guibg=DarkBlue
 " Explicitly tell Vim that the terminal supports 256 colors
-colorscheme pablo
 set t_Co=256 
 
 set background=dark
+colorscheme desert
 
 "Column
 if version >= 703
@@ -187,7 +187,7 @@ let g:CodeReviewer_reviewFile='./review.rev'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "Powerline
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"let g:Powerline_symbols = 'fancy'
+let g:Powerline_symbols = 'unicode'
 set laststatus=2   " Always show the statusline
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
