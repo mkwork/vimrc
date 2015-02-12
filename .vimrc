@@ -67,7 +67,7 @@ set path+=include/,,
 set path+=src/,,
 
 " Enchanced for Russian encoding detection
-set fileencodings^=windows-1251
+set fileencodings^=utf8,windows-1251
 
 " Man builtin plugin
 runtime! ftplugin/man.vim
@@ -188,6 +188,8 @@ let g:CodeReviewer_reviewFile='./review.rev'
 "Powerline
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "let g:Powerline_symbols = 'fancy'
+set laststatus=2   " Always show the statusline
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "Haxe
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
