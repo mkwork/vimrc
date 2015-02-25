@@ -37,6 +37,8 @@ syntax enable on
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Features 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"Esc speedup
+imap jk <ESC>
 " Set viminfo for fast restore on work
 set viminfo='100,<50,s10,h
 " Sets how many lines of history VIM has to remember
@@ -170,7 +172,7 @@ set wrap "Wrap lines
 "YouCompleteMe
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 nnoremap <F2> :YcmCompleter GoToDefinitionElseDeclaration<CR>
-let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/cpp/ycm/.ycm_extra_conf.py'
+let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "Html
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
