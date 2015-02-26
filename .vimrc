@@ -169,17 +169,9 @@ set si "Smart indent
 set wrap "Wrap lines
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"YouCompleteMe
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-nnoremap <F2> :YcmCompleter GoToDefinitionElseDeclaration<CR>
-let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "Html
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
-"Files search 
-"Keybindings for Fuzzyfinder
-nnoremap <silent> <c-k>  :Unite file_rec buffer -start-insert <CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "Code review
@@ -239,7 +231,7 @@ if !1 | finish | endif
 
 " set the bundle root, and vundle directory
 let root = '~/.vim/bundle'
-let src = 'http://github.com/Shougo/neobundle.vim.git'
+let src = 'https://github.com/Shougo/neobundle.vim.git'
 
 " clone neobundle if it's missing
 if !isdirectory(expand(root, 1).'/neobundle.vim')
@@ -261,6 +253,23 @@ call neobundle#begin(expand('~/.vim/bundle/'))
 
 NeoBundleFetch 'Shougo/neobundle.vim'
 
+" Too cool for centos6 out of box
+if version >= 703
+    """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+    "YouCompleteMe (autocomplete)
+    """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+    NeoBundle 'Valloric/YouCompleteMe.git'
+    nnoremap <F2> :YcmCompleter GoToDefinitionElseDeclaration<CR>
+    let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
+
+    """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+    "Unite (files search)
+    """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+    NeoBundle 'Shougo/unite.vim'
+    nnoremap <silent> <c-k>  :Unite file_rec buffer -start-insert <CR>
+endif
+
+
 " My Bundles here:
 NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'scrooloose/syntastic'
@@ -281,7 +290,6 @@ NeoBundle 'vimwiki/vimwiki'
 NeoBundle 'tkztmk/vim-vala'
 NeoBundle 'wdicarlo/vim-notebook'
 NeoBundle 'CodeReviewer.vim'
-NeoBundle 'Valloric/YouCompleteMe.git'
 
 " Nice start screen
 NeoBundle 'mhinz/vim-startify'
@@ -298,7 +306,6 @@ NeoBundle "honza/vim-snippets"
 
 "Fast search
 NeoBundle 'vim-scripts/L9'
-NeoBundle 'Shougo/unite.vim'
 " Refer to |:NeoBundle-examples|.
 " Note: You don't set neobundle setting in .gvimrc!
 
