@@ -292,6 +292,9 @@ NeoBundle 'tkztmk/vim-vala'
 NeoBundle 'wdicarlo/vim-notebook'
 NeoBundle 'CodeReviewer.vim'
 
+" git integration
+NeoBundle 'tpope/vim-fugitive'
+
 " Nice start screen
 NeoBundle 'mhinz/vim-startify'
 
