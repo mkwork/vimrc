@@ -12,6 +12,7 @@
     evil-tabs
     powerline
     powerline-evil
+    darcula-theme
     ) "a list of packages to ensure are installed at launch.")
 
 (require 'cl)
@@ -40,4 +41,4 @@
 (require 'powerline)
 (require 'powerline-evil)
 (powerline-default-theme)
-
+(require 'darcula-theme)
