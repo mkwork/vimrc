@@ -18,6 +18,7 @@
     yasnippet
     ) "a list of packages to ensure are installed at launch.")
 
+(setq sml/no-confirm-load-theme t)
 (sml/setup)
 (setq sml/theme 'dark)
 (require 'cl)
