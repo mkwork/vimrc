@@ -16,11 +16,14 @@
     company
     company-c-headers
     yasnippet
+    smart-mode-line
+    smart-mode-line-powerline-theme
     ) "a list of packages to ensure are installed at launch.")
 
 (setq sml/no-confirm-load-theme t)
 (sml/setup)
 (setq sml/theme 'dark)
+
 (require 'cl)
 
 ; method to check if all packages are installed
