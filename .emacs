@@ -10,13 +10,16 @@
   '(
     evil
     evil-tabs
-    powerline
-    powerline-evil
     darcula-theme
     cpputils-cmake
     irony
+    company
+    company-c-headers
+    yasnippet
     ) "a list of packages to ensure are installed at launch.")
 
+(sml/setup)
+(setq sml/theme 'dark)
 (require 'cl)
 
 ; method to check if all packages are installed
@@ -40,11 +43,10 @@
   (evil-mode 1)
 (global-evil-tabs-mode t)
 
-(require 'powerline)
-(require 'powerline-evil)
-(powerline-default-theme)
 (require 'darcula-theme)
 (require 'cpputils-cmake)
+(require 'irony)
+(require 'yasnippet)
 
 (add-hook 'c-mode-common-hook
           (lambda ()
@@ -71,3 +73,18 @@
     'irony-completion-at-point-async))
 (add-hook 'irony-mode-hook 'my-irony-mode-hook)
 (add-hook 'irony-mode-hook 'irony-cdb-autosetup-compile-options)
+
+;;(add-to-list 'company-backends 'company-c-headers)
+(add-hook 'after-init-hook 'global-company-mode)
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(custom-safe-themes (quote ("a27c00821ccfd5a78b01e4f35dc056706dd9ede09a8b90c6955ae6a390eb1c1e" default))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
