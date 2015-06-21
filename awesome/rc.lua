@@ -121,10 +121,6 @@ kbdcfg.current = 1  -- us is our default layout
 kbdcfg.widget = wibox.widget.textbox()
 kbdcfg.widget:set_text(" " .. kbdcfg.layout[kbdcfg.current][3] .. " ")
 
--- os.execute("xmodmap -e 'remove Lock = Caps_Lock'")
---echo "Fuck off" > /tmp/fuck
-
-
 kbdcfg.switch = function ()
    kbdcfg.current = kbdcfg.current % #(kbdcfg.layout) + 1
    local t = kbdcfg.layout[kbdcfg.current]
@@ -136,6 +132,41 @@ end
 kbdcfg.widget:buttons(
    awful.util.table.join(awful.button({ }, 1, function () kbdcfg.switch() end))
 )
+
+-- This is a tweak based off of the volume widget box.  I didn't like the idea of having a box, so it has been changed to display numbers.  I like it simple
+
+local wibox = require("wibox")
+local awful = require("awful")
+
+volume_widget = wibox.widget.textbox()
+volume_widget:set_align("right")
+
+function update_volume(widget)
+   local fd = io.popen("amixer sget Master")
+   local status = fd:read("*all")
+   fd:close()
+
+   local volume = string.match(status, "(%d?%d?%d)%%")
+   volume = string.format("% 3d", volume)
+
+   status = string.match(status, "%[(o[^%]]*)%]")
+
+   if string.find(status, "on", 1, true) then
+      -- For the volume number percentage
+      volume = volume .. "%"
+   else
+      -- For displaying the mute status.
+      volume = volume .. "M"
+
+   end
+   widget:set_markup(volume)
+end
+
+update_volume(volume_widget)
+
+mytimer = timer({ timeout = 0.2 })
+mytimer:connect_signal("timeout", function () update_volume(volume_widget) end)
+mytimer:start()
 
 -- Create a wibox for each screen and add it
 mywibox = {}
@@ -216,6 +247,7 @@ for s = 1, screen.count() do
     -- Widgets that are aligned to the right
     local right_layout = wibox.layout.fixed.horizontal()
     if s == 1 then right_layout:add(wibox.widget.systray()) end
+    right_layout:add(volume_widget)
     right_layout:add(mytextclock)
     right_layout:add(mylayoutbox[s])
     right_layout:add(kbdcfg.widget)
@@ -243,6 +275,12 @@ root.buttons(awful.util.table.join(
 globalkeys = awful.util.table.join(
    
     awful.key({ },"#66", function () kbdcfg.switch() end),
+    awful.key({ }, "XF86AudioRaiseVolume", function ()
+	  awful.util.spawn("amixer set Master 9%+", false) end),
+    awful.key({ }, "XF86AudioLowerVolume", function ()
+	  awful.util.spawn("amixer set Master 9%-", false) end),
+    awful.key({ }, "XF86AudioMute", function ()
+	  awful.util.spawn("amixer set Master toggle", false) end),
     awful.key({ modkey,           }, "Left",   awful.tag.viewprev       ),
     awful.key({ modkey,           }, "Right",  awful.tag.viewnext       ),
     awful.key({ modkey,           }, "Escape", awful.tag.history.restore),
