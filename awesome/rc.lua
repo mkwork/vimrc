@@ -164,9 +164,9 @@ end
 
 update_volume(volume_widget)
 
-mytimer = timer({ timeout = 0.2 })
+mytimer = timer({ timeout = 2.2 })
 mytimer:connect_signal("timeout", function () update_volume(volume_widget) end)
-mytimer:start()
+--mytimer:start()
 
 -- Create a wibox for each screen and add it
 mywibox = {}
@@ -276,11 +276,11 @@ globalkeys = awful.util.table.join(
    
     awful.key({ },"#66", function () kbdcfg.switch() end),
     awful.key({ }, "XF86AudioRaiseVolume", function ()
-	  awful.util.spawn("amixer set Master 9%+", false) end),
+	  awful.util.spawn("amixer set Master 9%+", false); update_volume(volume_widget) end),
     awful.key({ }, "XF86AudioLowerVolume", function ()
-	  awful.util.spawn("amixer set Master 9%-", false) end),
+	  awful.util.spawn("amixer set Master 9%-", false) ; update_volume(volume_widget) end),
     awful.key({ }, "XF86AudioMute", function ()
-	  awful.util.spawn("amixer set Master toggle", false) end),
+	  awful.util.spawn("amixer set Master toggle", false) ; update_volume(volume_widget) end),
     awful.key({ modkey,           }, "Left",   awful.tag.viewprev       ),
     awful.key({ modkey,           }, "Right",  awful.tag.viewnext       ),
     awful.key({ modkey,           }, "Escape", awful.tag.history.restore),
