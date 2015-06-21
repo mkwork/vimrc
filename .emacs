@@ -18,11 +18,9 @@
     yasnippet
     smart-mode-line
     smart-mode-line-powerline-theme
+    lua-mode
     ) "a list of packages to ensure are installed at launch.")
 
-(setq sml/no-confirm-load-theme t)
-(sml/setup)
-(setq sml/theme 'dark)
 
 (require 'cl)
 
@@ -43,9 +41,6 @@
     (when (not (package-installed-p p))
       (package-install p))))
 
-(require 'evil)
-  (evil-mode 1)
-(global-evil-tabs-mode t)
 
 (require 'darcula-theme)
 (require 'cpputils-cmake)
@@ -85,10 +80,22 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(custom-safe-themes (quote ("a27c00821ccfd5a78b01e4f35dc056706dd9ede09a8b90c6955ae6a390eb1c1e" default))))
+ '(custom-safe-themes
+   (quote
+    ("a27c00821ccfd5a78b01e4f35dc056706dd9ede09a8b90c6955ae6a390eb1c1e" default)))
+ '(inhibit-startup-screen t))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  )
+
+(setq sml/no-confirm-load-theme t)
+(setq sml/theme 'dark)
+(sml/setup)
+
+(require 'evil)
+(evil-mode 1)
+(require 'evil-tabs)
+(global-ede-mode 1)
