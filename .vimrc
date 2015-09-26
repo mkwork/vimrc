@@ -259,9 +259,9 @@ if version >= 703
     """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
     "YouCompleteMe (autocomplete)
     """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-    NeoBundle 'Valloric/YouCompleteMe.git'
-    nnoremap <F2> :YcmCompleter GoToDefinitionElseDeclaration<CR>
-    let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
+   " NeoBundle 'Valloric/YouCompleteMe.git'
+   " nnoremap <F2> :YcmCompleter GoToDefinitionElseDeclaration<CR>
+   " let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
 
     """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
     "Unite (files search)
