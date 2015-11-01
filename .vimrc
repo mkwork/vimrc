@@ -259,9 +259,9 @@ if version >= 703
     """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
     "YouCompleteMe (autocomplete)
     """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-    NeoBundle 'Valloric/YouCompleteMe.git'
-    nnoremap <F2> :YcmCompleter GoToDefinitionElseDeclaration<CR>
-    let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
+    "NeoBundle 'Valloric/YouCompleteMe.git'
+    "nnoremap <F2> :YcmCompleter GoToDefinitionElseDeclaration<CR>
+    "let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
 
     """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
     "Unite (files search)
@@ -291,6 +291,7 @@ NeoBundle 'vimwiki/vimwiki'
 NeoBundle 'tkztmk/vim-vala'
 NeoBundle 'wdicarlo/vim-notebook'
 NeoBundle 'CodeReviewer.vim'
+NeoBundle 'davidhalter/jedi-vim'
 
 " git integration
 NeoBundle 'tpope/vim-fugitive'
