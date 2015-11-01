@@ -4,16 +4,17 @@ git submodule init
 git submodule update
 
 #deploy dotfiles
-ln -s `pwd`/.vimrc /home/$USER/
-ln -s `pwd`/.gvimrc /home/$USER/
-ln -s `pwd`/.screenrc /home/$USER/
-ln -s `pwd`/.tmux.conf /home/$USER/
+ln -sf $(pwd)/.vimrc ~/
+ln -sf $(pwd)/.gvimrc ~/
+ln -sf $(pwd)/.screenrc ~/
+ln -sf $(pwd)/.tmux.conf ~/
+ln -sf $(pwd)/.vimperatorrc ~/
 
 #tmux related
 #make bashr sourcable
 echo 'source ~/.bashrc' >> ~/.bash_profile
 #latest stable tmux
-curl -fsSL https://gist.github.com/shime/5706655/raw/install.sh | sudo bash -e
+#curl -fsSL https://gist.github.com/shime/5706655/raw/install.sh | sudo bash -e
 #tmux tpm
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
