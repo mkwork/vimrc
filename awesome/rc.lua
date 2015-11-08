@@ -432,6 +432,8 @@ awful.rules.rules = {
       properties = { floating = true } },
     { rule = { class = "gimp" },
       properties = { floating = true } },
+    { rule = { class = "QtCreator" },
+      properties = { tag = tags[1][3] } },
     { rule = { class = "Qbittorrent" },
       properties = { tag = tags[1][8] } },
     { rule = { class = "Firefox" },
