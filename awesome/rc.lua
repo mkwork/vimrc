@@ -434,6 +434,13 @@ awful.rules.rules = {
       properties = { floating = true } },
     { rule = { class = "QtCreator" },
       properties = { tag = tags[1][3] } },
+    { rule = { class = "Gvim" }, 
+      properties = { tag = tags[1][4],
+      maximized = true,
+      focus = true,
+      switchtotag = true,
+      size_hints_honor = false 
+  } },
     { rule = { class = "Qbittorrent" },
       properties = { tag = tags[1][8] } },
     { rule = { class = "Firefox" },
