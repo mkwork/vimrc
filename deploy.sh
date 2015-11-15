@@ -9,6 +9,11 @@ ln -sf $(pwd)/.gvimrc ~/
 ln -sf $(pwd)/.screenrc ~/
 ln -sf $(pwd)/.tmux.conf ~/
 ln -sf $(pwd)/.vimperatorrc ~/
+ln -sf $(pwd)/.myrc ~/
+
+#bashrc extension
+myrc_init="source ~/.myrc"
+grep -q "$myrc_init" ~/.bashrc || echo $myrc_init >> ~/.bashrc
 
 #tmux related
 #make bashr sourcable
