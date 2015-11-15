@@ -11,4 +11,6 @@ shopt -s histappend
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
 HISTSIZE=
 HISTFILESIZE=
+
+#gvim console entry
 alias gvimr='gvim --remote-tab-silent'
