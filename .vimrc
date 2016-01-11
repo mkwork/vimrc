@@ -310,6 +310,7 @@ NeoBundle 'garbas/vim-snipmate'
 NeoBundle 'MarcWeber/vim-addon-mw-utils'
 NeoBundle 'tomtom/tlib_vim'
 NeoBundle "honza/vim-snippets"
+NeoBundle 'alx741/vinfo'
 
 "Fast search
 NeoBundle 'vim-scripts/L9'
