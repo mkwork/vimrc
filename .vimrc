@@ -313,9 +313,12 @@ NeoBundle "honza/vim-snippets"
 
 "Fast search
 NeoBundle 'vim-scripts/L9'
+
+"rtags integration
+NeoBundle 'lyuts/vim-rtags'
+
 " Refer to |:NeoBundle-examples|.
 " Note: You don't set neobundle setting in .gvimrc!
-
 call neobundle#end()
 
 " Required:
