@@ -441,7 +441,7 @@ awful.rules.rules = {
       switchtotag = true,
       size_hints_honor = false 
   } },
-    { rule = { class = "Qbittorrent" },
+    { rule = { class = "qbittorrent" },
       properties = { tag = tags[1][8] } },
     { rule = { class = "Firefox" },
        properties = { tag = tags[1][1] } },
