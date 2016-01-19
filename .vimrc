@@ -257,19 +257,10 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 " Too cool for centos6 out of box
 if version >= 703
     """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-    "YouCompleteMe (autocomplete)
-    """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-    "NeoBundle 'Valloric/YouCompleteMe.git'
-    "nnoremap <F2> :YcmCompleter GoToDefinitionElseDeclaration<CR>
-    "let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
-   " NeoBundle 'Valloric/YouCompleteMe.git'
-   " nnoremap <F2> :YcmCompleter GoToDefinitionElseDeclaration<CR>
-   " let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
-    """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
     "Unite (files search)
     """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
     NeoBundle 'Shougo/unite.vim'
-    nnoremap <silent> <c-k>  :Unite file_rec buffer -start-insert <CR>
+    nnoremap <silent> <c-k>  :Unite buffer file_rec -start-insert <CR>
 endif
 
 
