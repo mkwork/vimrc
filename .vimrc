@@ -246,7 +246,7 @@ if version >= 703
     """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
     NeoBundle 'Shougo/unite.vim'
     nnoremap <silent> <c-k><c-f>  :Unite buffer file_rec -start-insert <CR>
-    nnoremap <silent> <c-k><c-r>  :Unite buffer rtags/references -start-insert <CR>
+    nnoremap <silent> <c-k><c-r>  :Unite rtags/references -start-insert <CR>
 endif
 
 
