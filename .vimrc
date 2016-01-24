@@ -301,6 +301,9 @@ NeoBundle 'vim-scripts/L9'
 "rtags integration
 NeoBundle 'lyuts/vim-rtags'
 
+"additional syntax highlighting
+NeoBundle 'sheerun/vim-polyglot'
+
 " Refer to |:NeoBundle-examples|.
 " Note: You don't set neobundle setting in .gvimrc!
 call neobundle#end()
