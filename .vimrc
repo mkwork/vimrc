@@ -195,6 +195,7 @@ let g:tagbar_width = 44
 "vim-airline
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:airline#extensions#tabline#enabled = 1
+let g:airline_theme = 'distinguished'
 :set laststatus=2
 
 
@@ -299,7 +300,7 @@ NeoBundle 'alx741/vinfo'
 NeoBundle 'vim-scripts/L9'
 
 "rtags integration
-NeoBundle 'lyuts/vim-rtags'
+NeoBundle 'mkwork/vim-rtags', 'develop'
 
 "additional syntax highlighting
 NeoBundle 'sheerun/vim-polyglot'
@@ -314,5 +315,4 @@ filetype plugin indent on
 " If there are uninstalled bundles found on startup,
 " this will conveniently prompt you to install them.
 NeoBundleCheck
-
 
