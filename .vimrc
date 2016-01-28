@@ -292,6 +292,9 @@ NeoBundle 'alx741/vinfo'
 "Fast search
 NeoBundle 'vim-scripts/L9'
 
+"csv editing
+NeoBundle 'chrisbra/csv.vim'
+
 "rtags integration
 NeoBundle 'lyuts/vim-rtags'
 
