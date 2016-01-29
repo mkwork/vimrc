@@ -45,8 +45,6 @@ set viminfo='100,<50,s10,h
 " Sets how many lines of history VIM has to remember
 set history=700
 
-" Set paste mode
-set paste
 
 " Enable filetype plugins
 filetype plugin on
@@ -179,11 +177,6 @@ autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:CodeReviewer_reviewer='Maxim Kot<work.maydjin@gmail.com>'
 let g:CodeReviewer_reviewFile='./review.rev'
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"Powerline
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:Powerline_symbols = 'unicode'
-set laststatus=2   " Always show the statusline
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "Markdown
@@ -197,6 +190,14 @@ augroup END
 "Tagbar
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:tagbar_width = 44
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"vim-airline
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_theme = 'distinguished'
+:set laststatus=2
+
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "Startify
@@ -242,13 +243,24 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 " Too cool for centos6 out of box
 if version >= 703
     """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+    "Neocomplete 
+    """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+    let g:neocomplete#enable_at_startup = 1
+    " Use smartcase.
+    let g:neocomplete#enable_smart_case = 1
+    NeoBundle 'Shougo/neocomplete.vim'
+
+    """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+    "vimproc
+    """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+    NeoBundle 'Shougo/vimproc.vim'
+    """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
     "Unite (files search)
     """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
     NeoBundle 'Shougo/unite.vim'
     nnoremap <silent> <c-k><c-f>  :Unite buffer file_rec -start-insert <CR>
     nnoremap <silent> <c-k><c-r>  :Unite rtags/references -start-insert <CR>
 endif
-
 
 " My Bundles here:
 NeoBundle 'scrooloose/nerdtree'
@@ -257,17 +269,14 @@ NeoBundle 'scrooloose/nerdcommenter'
 NeoBundle 'jansenm/vim-cmake'
 NeoBundle 'thinca/vim-ref'
 NeoBundle 'majutsushi/tagbar'
-NeoBundle 'wesleyche/SrcExpl'
-NeoBundle 'Lokaltog/vim-powerline'
+NeoBundle 'vim-airline/vim-airline'
 NeoBundle 'ruby.vim'
 NeoBundle 'tpope/vim-rails'
 NeoBundle 'DoxygenToolkit.vim'
-NeoBundle 'mattn/emmet-vim'
 NeoBundle 'xml.vim'
 NeoBundle 'MatchTag'
 NeoBundle 'jtratner/vim-flavored-markdown'
 NeoBundle 'vimwiki/vimwiki'
-NeoBundle 'tkztmk/vim-vala'
 NeoBundle 'wdicarlo/vim-notebook'
 NeoBundle 'CodeReviewer.vim'
 NeoBundle 'davidhalter/jedi-vim'
@@ -288,7 +297,7 @@ NeoBundle 'MarcWeber/vim-addon-mw-utils'
 NeoBundle 'tomtom/tlib_vim'
 NeoBundle "honza/vim-snippets"
 NeoBundle 'alx741/vinfo'
-
+NeoBundle 'MattesGroeger/vim-bookmarks'
 "Fast search
 NeoBundle 'vim-scripts/L9'
 
@@ -296,7 +305,7 @@ NeoBundle 'vim-scripts/L9'
 NeoBundle 'chrisbra/csv.vim'
 
 "rtags integration
-NeoBundle 'lyuts/vim-rtags'
+NeoBundle 'mkwork/vim-rtags', 'develop'
 
 "additional syntax highlighting
 NeoBundle 'sheerun/vim-polyglot'
@@ -311,5 +320,4 @@ filetype plugin indent on
 " If there are uninstalled bundles found on startup,
 " this will conveniently prompt you to install them.
 NeoBundleCheck
-
 
