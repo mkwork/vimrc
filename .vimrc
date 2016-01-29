@@ -249,7 +249,6 @@ if version >= 703
     " Use smartcase.
     let g:neocomplete#enable_smart_case = 1
     NeoBundle 'Shougo/neocomplete.vim'
-
     """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
     "vimproc
     """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
