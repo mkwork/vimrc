@@ -259,11 +259,17 @@ if version >= 703
     NeoBundle 'Shougo/unite.vim'
     nnoremap <silent> <c-k><c-f>  :Unite buffer file_rec -start-insert <CR>
     nnoremap <silent> <c-k><c-r>  :Unite rtags/references -start-insert <CR>
+    nnoremap <silent> <c-k><c-s>  :Unite rtags/symbol -start-insert <CR>
 endif
 
 " My Bundles here:
 NeoBundle 'scrooloose/nerdtree'
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"Syntastic 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 NeoBundle 'scrooloose/syntastic'
+let g:syntastic_auto_loc_list = 0
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 NeoBundle 'scrooloose/nerdcommenter'
 NeoBundle 'jansenm/vim-cmake'
 NeoBundle 'thinca/vim-ref'
@@ -296,7 +302,13 @@ NeoBundle 'MarcWeber/vim-addon-mw-utils'
 NeoBundle 'tomtom/tlib_vim'
 NeoBundle "honza/vim-snippets"
 NeoBundle 'alx741/vinfo'
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"vim-bookmarks 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 NeoBundle 'MattesGroeger/vim-bookmarks'
+let g:bookmark_save_per_working_dir = 1
+let g:bookmark_auto_save = 1
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "Fast search
 NeoBundle 'vim-scripts/L9'
 
