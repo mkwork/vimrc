@@ -275,6 +275,7 @@ NeoBundle 'jansenm/vim-cmake'
 NeoBundle 'thinca/vim-ref'
 NeoBundle 'majutsushi/tagbar'
 NeoBundle 'vim-airline/vim-airline'
+NeoBundle 'vim-airline/vim-airline-themes'
 NeoBundle 'ruby.vim'
 NeoBundle 'tpope/vim-rails'
 NeoBundle 'DoxygenToolkit.vim'
@@ -316,8 +317,7 @@ NeoBundle 'vim-scripts/L9'
 NeoBundle 'chrisbra/csv.vim'
 
 "rtags integration
-NeoBundle 'mkwork/vim-rtags', 'develop'
-
+NeoBundle 'lyuts/vim-rtags'
 "additional syntax highlighting
 NeoBundle 'sheerun/vim-polyglot'
 
