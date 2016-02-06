@@ -310,6 +310,14 @@ NeoBundle 'MattesGroeger/vim-bookmarks'
 let g:bookmark_save_per_working_dir = 1
 let g:bookmark_auto_save = 1
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"ack.vim
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+NeoBundle 'mileszs/ack.vim'
+if executable('ag')
+    let g:ackprg = 'ag --vimgrep'
+endif
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "Fast search
 NeoBundle 'vim-scripts/L9'
 
