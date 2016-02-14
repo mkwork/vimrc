@@ -292,22 +292,21 @@ NeoBundle 'wdicarlo/vim-notebook'
 NeoBundle 'CodeReviewer.vim'
 NeoBundle 'davidhalter/jedi-vim'
 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " git integration
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 NeoBundle 'tpope/vim-fugitive'
 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Nice start screen
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 NeoBundle 'mhinz/vim-startify'
 
-" Allow autoclose paired characters like [,] or (,),
-" " and add smart cursor positioning inside it,
-NeoBundle 'Raimondi/delimitMate'
-
-"Snippets plugins
-NeoBundle 'garbas/vim-snipmate'
-NeoBundle 'MarcWeber/vim-addon-mw-utils'
-NeoBundle 'tomtom/tlib_vim'
-NeoBundle "honza/vim-snippets"
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Info documentation readed
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 NeoBundle 'alx741/vinfo'
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "vim-bookmarks 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -315,6 +314,7 @@ NeoBundle 'MattesGroeger/vim-bookmarks'
 let g:bookmark_save_per_working_dir = 1
 let g:bookmark_auto_save = 1
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "ack.vim
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -331,6 +331,7 @@ NeoBundle 'chrisbra/csv.vim'
 
 "rtags integration
 NeoBundle 'lyuts/vim-rtags'
+
 "additional syntax highlighting
 NeoBundle 'sheerun/vim-polyglot'
 
