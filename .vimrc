@@ -36,8 +36,19 @@ syntax enable on
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Features 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"Esc speedup
+
+" Esc speedup
 imap jk <ESC>
+
+" Source range 
+function! SourceRange() range
+    let tmpsofile = tempname()
+    call writefile(getline(a:firstline, a:lastline), l:tmpsofile)
+    execute "source " . l:tmpsofile
+    call delete(l:tmpsofile)
+endfunction
+command! -range Source <line1>,<line2>call SourceRange()
+
 " Set viminfo for fast restore on work
 set viminfo='100,<50,s10,h
 " Sets how many lines of history VIM has to remember
@@ -137,6 +148,9 @@ set smartcase
 
 " Highlight search results
 set hlsearch
+
+" My custom hl search colors
+hi Search cterm=NONE ctermfg=white ctermbg=darkmagenta
 
 " Makes search act like search in modern browsers
 set incsearch
