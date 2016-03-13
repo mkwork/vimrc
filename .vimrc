@@ -249,6 +249,16 @@ if version >= 703
     " Use smartcase.
     let g:neocomplete#enable_smart_case = 1
     NeoBundle 'Shougo/neocomplete.vim'
+    function! SetupNeocomleteForCppWithRtags()
+        " Enable heavy omni completion.
+        setlocal omnifunc=RtagsCompleteFunc
+        if !exists('g:neocomplete#sources#omni#input_patterns')
+            let g:neocomplete#sources#omni#input_patterns = {}
+        endif
+        let l:cpp_patterns='[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
+        let g:neocomplete#sources#omni#input_patterns.cpp = l:cpp_patterns 
+        set completeopt+=longest,menuone
+    endfunction
     """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
     "vimproc
     """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -343,3 +353,4 @@ filetype plugin indent on
 " this will conveniently prompt you to install them.
 NeoBundleCheck
 
+autocmd FileType cpp,c call SetupNeocomleteForCppWithRtags()
