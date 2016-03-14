@@ -1,12 +1,10 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Apperance
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"hi PmenuSel   ctermfg=White	   ctermbg=DarkBlue  guifg=White  guibg=DarkBlue
 " Explicitly tell Vim that the terminal supports 256 colors
 set t_Co=256 
 
 set background=dark
-colorscheme desert
 set noswapfile
 
 "Column
@@ -341,6 +339,12 @@ NeoBundle 'lyuts/vim-rtags'
 
 "additional syntax highlighting
 NeoBundle 'sheerun/vim-polyglot'
+
+" colorscheme pack
+NeoBundle 'flazz/vim-colorschemes'
+
+" colorscheme scroller
+NeoBundle 'qualiabyte/vim-colorstepper'
 
 " Refer to |:NeoBundle-examples|.
 " Note: You don't set neobundle setting in .gvimrc!
