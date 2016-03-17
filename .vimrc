@@ -1,9 +1,6 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Apperance
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Explicitly tell Vim that the terminal supports 256 colors
-set t_Co=256 
-
 set background=dark
 set noswapfile
 
@@ -207,7 +204,7 @@ let g:tagbar_width = 44
 "vim-airline
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:airline#extensions#tabline#enabled = 1
-let g:airline_theme = 'distinguished'
+let g:airline_theme = 'badwolf'
 :set laststatus=2
 
 
