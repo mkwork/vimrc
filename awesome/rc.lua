@@ -41,8 +41,8 @@ end
 beautiful.init("/usr/share/awesome/themes/default/theme.lua")
 
 -- This is used later as the default terminal and editor to run.
-terminal = "gnome-terminal"
-editor = "emacs"
+terminal = "urxvt -e tmux"
+editor = "gvim"
 editor_cmd = editor
 
 -- Default modkey.
