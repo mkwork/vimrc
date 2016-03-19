@@ -257,8 +257,8 @@ if version >= 703
     let g:neocomplete#enable_at_startup = 1
     let g:neocomplete#enable_smart_case = 1
     autocmd FileType python setlocal omnifunc=jedi#completions
-    let g:jedi#completions_enabled = 0
-    let g:jedi#auto_vim_configuration = 0
+    let g:jedi#completions_enabled = 1
+    let g:jedi#auto_vim_configuration = 1
 
     if !exists('g:neocomplete#force_omni_input_patterns')
         let g:neocomplete#force_omni_input_patterns = {}
@@ -268,6 +268,7 @@ if version >= 703
     function! SetupNeocomleteForCppWithRtags()
         " Enable heavy omni completion.
         setlocal omnifunc=RtagsCompleteFunc
+
         if !exists('g:neocomplete#sources#omni#input_patterns')
             let g:neocomplete#sources#omni#input_patterns = {}
         endif
@@ -275,6 +276,24 @@ if version >= 703
         let g:neocomplete#sources#omni#input_patterns.cpp = l:cpp_patterns 
         set completeopt+=longest,menuone
     endfunction
+
+    """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+    "snippets
+    """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+    NeoBundle 'Shougo/neosnippet'
+    NeoBundle 'Shougo/neosnippet-snippets'
+    NeoBundle 'honza/vim-snippets'
+    " Plugin key-mappings.
+    imap <C-k>     <Plug>(neosnippet_expand_or_jump)
+    smap <C-k>     <Plug>(neosnippet_expand_or_jump)
+    xmap <C-k>     <Plug>(neosnippet_expand_target)
+    " Enable snipMate compatibility feature.
+    let g:neosnippet#enable_snipmate_compatibility = 1
+
+    " Tell Neosnippet about the other snippets
+    let g:neosnippet#snippets_directory='~/.vim/bundle/vim-snippets/snippets'
+    """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
     """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
     "vimproc
     """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
