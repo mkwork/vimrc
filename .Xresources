@@ -35,7 +35,7 @@
 *color7:       #c5c8c6
 *color15:      #c5c8c6
 
-URxvt*font: xft:Terminus:size=12
+URxvt*font: xft:Ubuntu mono:size=12
 
 URxvt.geometry: 150x45
 URxvt.saveLines: 10000
