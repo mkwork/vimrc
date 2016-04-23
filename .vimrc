@@ -37,6 +37,9 @@ syntax enable on
 " Esc speedup
 imap jk <ESC>
 
+" Space leader [experimental]
+let mapleader = "\<Space>"
+
 " Source range 
 function! SourceRange() range
     let tmpsofile = tempname()
@@ -204,7 +207,7 @@ let g:tagbar_width = 44
 "vim-airline
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:airline#extensions#tabline#enabled = 1
-let g:airline_theme = 'badwolf'
+let g:airline_theme = 'base16_3024'
 :set laststatus=2
 
 
