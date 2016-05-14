@@ -396,6 +396,9 @@ NeoBundle 'flazz/vim-colorschemes'
 " colorscheme scroller
 NeoBundle 'qualiabyte/vim-colorstepper'
 
+" Ansi esc
+NeoBundle 'vim-scripts/AnsiEsc.vim'
+
 " Refer to |:NeoBundle-examples|.
 " Note: You don't set neobundle setting in .gvimrc!
 call neobundle#end()
