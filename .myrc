@@ -14,6 +14,9 @@ HISTFILESIZE=
 
 #gvim console entry
 alias gvimr='gvim --remote-tab-silent'
-alias tmux="TERM=screen-256color-bce tmux"
+#alias tmux="TERM=screen-256color-bce tmux"
 alias pe4al='echo ":("'
 alias toska='echo "^_^"'
+
+#git pager
+export GIT_PAGER="vim - -R -c ':AnsiEsc'"
