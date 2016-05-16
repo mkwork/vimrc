@@ -186,6 +186,8 @@ autocmd FileType cpp,c call SetupNeocomleteForCppWithRtags()
 "set background=dark
 set noswapfile
 
+colorscheme 256-grayvim
+
 "Column
 if version >= 703
     set colorcolumn=79
