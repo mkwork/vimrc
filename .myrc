@@ -14,7 +14,7 @@ HISTFILESIZE=
 
 #gvim console entry
 alias gvimr='gvim --remote-tab-silent'
-#alias tmux="TERM=screen-256color-bce tmux"
+export TERM=screen
 alias pe4al='echo ":("'
 alias toska='echo "^_^"'
 
