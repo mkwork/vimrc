@@ -186,6 +186,8 @@ autocmd FileType cpp,c call SetupNeocomleteForCppWithRtags()
 "set background=dark
 set noswapfile
 
+set t_Co=256
+colorscheme desert
 
 "Column
 if version >= 703
