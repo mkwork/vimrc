@@ -157,14 +157,14 @@ NeoBundle 'lyuts/vim-rtags'
 "additional syntax highlighting
 NeoBundle 'sheerun/vim-polyglot'
 
-" colorscheme pack
-NeoBundle 'flazz/vim-colorschemes'
-
 " colorscheme scroller
 NeoBundle 'qualiabyte/vim-colorstepper'
 
 " Ansi esc
 NeoBundle 'vim-scripts/AnsiEsc.vim'
+
+" colorscheme pack
+NeoBundle 'flazz/vim-colorschemes'
 
 "colorscheme converter
 NeoBundle 'vim-scripts/guicolorscheme.vim'
@@ -207,6 +207,8 @@ if version >= 700 && &term != 'cygwin' && !has('gui_running')
     " Check whether to use CSApprox.vim plugin or guicolorscheme.vim plugin.
     if has('gui') &&
       \ (filereadable(expand("$HOME/.vim/plugin/CSApprox.vim")) ||
+      \ filereadable(expand("$HOME/.vim/bundle/CSApprox/plugin/CSApprox.vim")) ||
+      \ filereadable(expand("$HOME/.vim/bundle/csapprox/plugin/CSApprox.vim")) ||
       \  filereadable(expand("$HOME/vimfiles/plugin/CSApprox.vim")))
       let s:use_CSApprox = 1
     elseif filereadable(expand("$HOME/.vim/plugin/guicolorscheme.vim")) ||
