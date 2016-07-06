@@ -170,6 +170,9 @@ NeoBundle 'flazz/vim-colorschemes'
 NeoBundle 'vim-scripts/guicolorscheme.vim'
 NeoBundle 'godlygeek/csapprox'
 
+"plantuml
+NeoBundle 'aklt/plantuml-syntax'
+
 " Refer to |:NeoBundle-examples|.
 " Note: You don't set neobundle setting in .gvimrc!
 call neobundle#end()
