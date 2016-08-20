@@ -295,7 +295,10 @@ globalkeys = awful.util.table.join(
             awful.client.focus.byidx(-1)
             if client.focus then client.focus:raise() end
         end),
-    awful.key({ modkey,           }, "w", function () mymainmenu:show() end),
+    awful.key({ modkey,           }, "e", function () 
+        awful.util.spawn("rofi -show run");  end),
+    awful.key({ modkey,           }, "w", function () 
+        awful.util.spawn("rofi -show window");  end),
 
     -- Layout manipulation
     awful.key({ modkey, "Shift"   }, "j", function () awful.client.swap.byidx(  1)    end),
