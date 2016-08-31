@@ -114,8 +114,7 @@ mytextclock = awful.widget.textclock()
 
 -- Keyboard map indicator and changer
 os.execute("setxkbmap -option caps:none")
-kbdcfg = {}
-kbdcfg.cmd = "setxkbmap "
+kbdcfg = {} kbdcfg.cmd = "setxkbmap "
 kbdcfg.layout = { { "us", "" , "En" }, { "ru,us", " ", "Ru" } }
 kbdcfg.current = 1  -- us is our default layout
 kbdcfg.widget = wibox.widget.textbox()
@@ -304,7 +303,9 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey, "Shift"   }, "j", function () awful.client.swap.byidx(  1)    end),
     awful.key({ modkey, "Shift"   }, "k", function () awful.client.swap.byidx( -1)    end),
     awful.key({ modkey, "Control" }, "j", function () awful.screen.focus_relative( 1) end),
-    awful.key({ modkey, "Control" }, "k", function () awful.screen.focus_relative(-1) end),
+    awful.key({ modkey, "Control" }, "j", function () awful.screen.focus_relative( 1) end),
+    awful.key({ modkey,           }, "n", function () awful.screen.focus_relative(-1) end),
+    awful.key({ modkey,           }, "p", function () awful.screen.focus_relative(-1) end),
     awful.key({ modkey,           }, "u", awful.client.urgent.jumpto),
     awful.key({ modkey,           }, "Tab",
         function ()
@@ -341,7 +342,7 @@ globalkeys = awful.util.table.join(
                   awful.util.getdir("cache") .. "/history_eval")
               end),
     -- Menubar
-    awful.key({ modkey }, "p", function() menubar.show() end)
+    awful.key({ modkey, "Control" }, "p", function() menubar.show() end)
 )
 
 clientkeys = awful.util.table.join(
