@@ -15,6 +15,11 @@ HISTFILESIZE=
 #gvim console entry
 alias gvimr='gvim --remote-tab-silent'
 alias tmux='tmux -2'
+function tmux-session {
+    session=$1
+    tmux attach $2 -t $session || tmux new -s $session
+}
+
 export TERM=screen
 alias pe4al='echo ":("'
 alias toska='echo "^_^"'
@@ -24,3 +29,4 @@ export GIT_PAGER="vim - -R -c ':AnsiEsc'"
 
 # two line prompt
 PS1="[\[\033[32m\]\w]\[\033[0m\]\n\[\033[1;36m\]\u@\h\[\033[1;33m\]-> \[\033[0m\]"
+
