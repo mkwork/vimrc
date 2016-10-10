@@ -23,6 +23,7 @@ function tmux-session {
 export TERM=screen
 alias pe4al='echo ":("'
 alias toska='echo "^_^"'
+alias ll='ls -al --color=auto'
 
 #git pager
 export GIT_PAGER="vim - -R -c ':AnsiEsc'"
