@@ -27,17 +27,22 @@ if version >= 703
     """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
     "Neocomplete 
     """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-    let g:neocomplete#enable_at_startup = 1
-    let g:neocomplete#enable_smart_case = 1
-    autocmd FileType python setlocal omnifunc=jedi#completions
-    let g:jedi#completions_enabled = 1
-    let g:jedi#auto_vim_configuration = 1
-
-    if !exists('g:neocomplete#force_omni_input_patterns')
-        let g:neocomplete#force_omni_input_patterns = {}
-    endif
-    let g:neocomplete#force_omni_input_patterns.python = '\%([^. \t]\.\|^\s*@\|^\s*from\s.\+import \|^\s*from \|^\s*import \)\w*'
     NeoBundle 'Shougo/neocomplete.vim'
+
+    " alternative pattern: '\h\w*\|[^. \t]\.\w*'
+    function! SetupNeocomleteForPython()
+        NeoCompleteEnable
+        setlocal omnifunc=jedi#completions
+        let g:jedi#completions_enabled = 0
+        let g:jedi#auto_vim_configuration = 0
+
+        if !exists('g:neocomplete#force_omni_input_patterns')
+            let g:neocomplete#force_omni_input_patterns = {}
+        endif
+
+        let g:neocomplete#force_omni_input_patterns.python = '\%([^. \t]\.\|^\s*@\|^\s*from\s.\+import \|^\s*from \|^\s*import \)\w*'
+    endfunction
+
     function! SetupNeocomleteForCppWithRtags()
         " Enable heavy omni completion.
         setlocal omnifunc=RtagsCompleteFunc
@@ -45,6 +50,7 @@ if version >= 703
         if !exists('g:neocomplete#sources#omni#input_patterns')
             let g:neocomplete#sources#omni#input_patterns = {}
         endif
+
         let l:cpp_patterns='[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
         let g:neocomplete#sources#omni#input_patterns.cpp = l:cpp_patterns 
         set completeopt+=longest,menuone
@@ -89,6 +95,15 @@ if version >= 703
     nnoremap <silent> <c-k><c-f>  :Unite buffer file_rec -start-insert <CR>
     nnoremap <silent> <c-k><c-r>  :Unite rtags/references -start-insert <CR>
     nnoremap <silent> <c-k><c-s>  :Unite rtags/symbol -start-insert <CR>
+
+    function! s:unite_my_settings()
+        nnoremap <silent><buffer><expr> s unite#do_action('split')
+        nnoremap <silent><buffer><expr> v unite#do_action('vsplit')
+
+        inoremap <silent><buffer><expr> <C-s> unite#do_action('split')
+        inoremap <silent><buffer><expr> <C-v> unite#do_action('vsplit')
+    endfunction
+
 endif
 
 " My Bundles here:
@@ -118,6 +133,11 @@ let g:jedi#auto_initialization = 1
 let g:jedi#popup_on_dot = 0
 autocmd  FileType python let b:did_ftplugin = 1
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Vdebug debug intrface for python, php, ruby
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+NeoBundle 'joonty/vdebug'
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " git integration
@@ -190,6 +210,8 @@ filetype plugin indent on
 NeoBundleCheck
 
 autocmd FileType cpp,c call SetupNeocomleteForCppWithRtags()
+autocmd FileType python call SetupNeocomleteForPython()
+autocmd FileType unite call s:unite_my_settings()
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
