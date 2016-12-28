@@ -218,6 +218,7 @@ autocmd FileType unite call s:unite_my_settings()
 " Apperance
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set background=dark
+set term=screen-256color
 set noswapfile
 
 let my_colorscheme = 'desert'
