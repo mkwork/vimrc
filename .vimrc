@@ -222,7 +222,11 @@ set noswapfile
 
 let my_colorscheme = 'desert'
 
-if version >= 700 && &term != 'cygwin' && !has('gui_running')
+if version >= 800
+  set t_Co=256
+  set termguicolors
+  execute 'colorscheme '.my_colorscheme
+elseif version >= 700 && &term != 'cygwin' && !has('gui_running')
   " In the color terminal, try to use CSApprox.vim plugin or
   " guicolorscheme.vim plugin if possible in order to have consistent
   " colors on different terminals.
@@ -266,7 +270,7 @@ if version >= 703
     set colorcolumn=79
 endif
 
-" Show raw numbers always
+" Show row numbers always
 set number
 
 " Turn on the WiLd menu
