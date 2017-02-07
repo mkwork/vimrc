@@ -34,3 +34,6 @@ PS1="[\[\033[32m\]\w]\[\033[0m\]\n\[\033[1;36m\]\u@\h\[\033[1;33m\]-> \[\033[0m\
 vimrc_dir=$(dirname $(readlink ~/.myrc))
 export PATH="$PATH:$vimrc_dir/scripts/"
 
+function ssh_addr {
+    echo 196.2.1.1 36076 22 | cut -f1 -d ' '
+}
