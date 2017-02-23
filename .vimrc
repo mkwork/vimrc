@@ -1,3 +1,6 @@
+" Note: Skip initialization for vim-tiny or vim-small.
+if !1 | finish | endif
+
 " set the bundle root, and vundle directory
 let root = '~/.vim/bundle'
 let src = 'https://github.com/Shougo/neobundle.vim.git'
@@ -222,11 +225,11 @@ set noswapfile
 
 let my_colorscheme = 'desert'
 
-if version >= 800
-  set t_Co=256
-  set termguicolors
-  execute 'colorscheme '.my_colorscheme
-elseif version >= 700 && &term != 'cygwin' && !has('gui_running')
+"if version >= 800
+  "set t_Co=256
+  "set termguicolors
+  "execute 'colorscheme '.my_colorscheme
+if version >= 700 && &term != 'cygwin' && !has('gui_running')
   " In the color terminal, try to use CSApprox.vim plugin or
   " guicolorscheme.vim plugin if possible in order to have consistent
   " colors on different terminals.
@@ -489,6 +492,7 @@ let g:startify_session_persistence = 1
 " be iMproved
 set nocompatible               
 
-" Note: Skip initialization for vim-tiny or vim-small.
-if !1 | finish | endif
 
+augroup FileType *
+    autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o formatoptions+=j
+augroup END
