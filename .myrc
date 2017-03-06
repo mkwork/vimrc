@@ -44,6 +44,6 @@ function ssh_addr {
 
 function convert_base {
     padding_width=$4
-    if [ -z ${padding_width} ]; then padding_width=32; fi;
-    printf "%0*d\n" ${padding_width} $(echo "ibase=${1}; obase=${2}; ${3}" | bc )
+    if [ -z ${padding_width} ]; then padding_width=0; fi;
+    printf "%*s\n" ${padding_width} $(echo "ibase=${1}; obase=${2}; ${3}" | bc ) | sed "s/ /0/g"
 }
