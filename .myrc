@@ -41,3 +41,9 @@ export PATH="$PATH:$vimrc_dir/scripts/"
 function ssh_addr {
     echo $SSH_CLIENT | cut -f1 -d ' '
 }
+
+function convert_base {
+    padding_width=$4
+    if [ -z ${padding_width} ]; then padding_width=32; fi;
+    printf "%0*d\n" ${padding_width} $(echo "ibase=${1}; obase=${2}; ${3}" | bc )
+}
