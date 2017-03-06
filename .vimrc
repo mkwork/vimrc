@@ -108,12 +108,41 @@ endif
 
 " My Bundles here:
 NeoBundle 'scrooloose/nerdtree'
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" pep8 suppoer
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+NeoBundle 'nvie/vim-flake8'
+let python_highlight_all=1
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "Syntastic 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 NeoBundle 'scrooloose/syntastic'
 let g:syntastic_auto_loc_list = 0
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"Session management 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+NeoBundle 'xolox/vim-misc'
+NeoBundle 'xolox/vim-session'
+
+" Persist the options of the session plug-in using the session plug-in...
+let g:session_persist_globals = ['&sessionoptions']
+call add(g:session_persist_globals, '&makeprg')
+call add(g:session_persist_globals, '&makeef')
+call add(g:session_persist_globals, 'g:session_autoload')
+call add(g:session_persist_globals, 'g:session_autosave')
+call add(g:session_persist_globals, 'g:session_default_to_last')
+call add(g:session_persist_globals, 'g:session_persist_globals')
+
+let g:session_autosave = 'no'
+let g:session_autoload = 'no'
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
 NeoBundle 'scrooloose/nerdcommenter'
 NeoBundle 'jansenm/vim-cmake'
 NeoBundle 'thinca/vim-ref'
@@ -125,6 +154,7 @@ NeoBundle 'DoxygenToolkit.vim'
 NeoBundle 'xml.vim'
 NeoBundle 'jtratner/vim-flavored-markdown'
 NeoBundle 'CodeReviewer.vim'
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " jedi-vim (python completion)
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -132,7 +162,7 @@ NeoBundle 'davidhalter/jedi-vim'
 let g:jedi#auto_initialization = 1
 let g:jedi#popup_on_dot = 0
 autocmd  FileType python let b:did_ftplugin = 1
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Vdebug debug intrface for python, php, ruby
@@ -190,6 +220,7 @@ NeoBundle 'vim-scripts/AnsiEsc.vim'
 
 " colorscheme pack
 NeoBundle 'flazz/vim-colorschemes'
+NeoBundle 'blueshirts/darcula'
 
 "colorscheme converter
 NeoBundle 'vim-scripts/guicolorscheme.vim'
@@ -219,7 +250,9 @@ autocmd FileType unite call s:unite_my_settings()
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set background=dark
 set term=screen-256color
+set t_Co=256
 set noswapfile
+"colorscheme darcula
 
 let my_colorscheme = 'desert'
 
@@ -418,7 +451,10 @@ set incsearch
 
 " For regular expressions turn magic on
 set magic
-
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Search 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+set splitright
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Text, tab and indent related
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
