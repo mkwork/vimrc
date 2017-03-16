@@ -47,3 +47,5 @@ function convert_base {
     if [ -z ${padding_width} ]; then padding_width=0; fi;
     printf "%*s\n" ${padding_width} $(echo "ibase=${1}; obase=${2}; ${3}" | bc ) | sed "s/ /0/g"
 }
+
+bind '\C-f:unix-filename-rubout'
