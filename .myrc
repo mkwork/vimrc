@@ -36,6 +36,8 @@ alias ll='ls -al --color=auto'
 #git pager
 export GIT_PAGER="vim - -R -c ':AnsiEsc'"
 
+alias vim-esc="vim -R -c ':AnsiEsc'"
+
 session=$((tmux list-session | grep attached | cut -f 1 -d ':') 2>/dev/null)
 if [ ! -z $session ]
 then
