@@ -46,19 +46,6 @@ if version >= 703
         let g:neocomplete#force_omni_input_patterns.python = '\%([^. \t]\.\|^\s*@\|^\s*from\s.\+import \|^\s*from \|^\s*import \)\w*'
     endfunction
 
-    function! SetupNeocomleteForCppWithRtags()
-        " Enable heavy omni completion.
-        setlocal omnifunc=RtagsCompleteFunc
-
-        if !exists('g:neocomplete#sources#omni#input_patterns')
-            let g:neocomplete#sources#omni#input_patterns = {}
-        endif
-
-        let l:cpp_patterns='[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
-        let g:neocomplete#sources#omni#input_patterns.cpp = l:cpp_patterns 
-        set completeopt+=longest,menuone
-    endfunction
-
     """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
     "snippets
     """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -96,8 +83,6 @@ if version >= 703
     """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
     NeoBundle 'Shougo/unite.vim'
     nnoremap <silent> <c-k><c-f>  :Unite buffer file_rec -start-insert <CR>
-    nnoremap <silent> <c-k><c-r>  :Unite rtags/references -start-insert <CR>
-    nnoremap <silent> <c-k><c-s>  :Unite rtags/symbol -start-insert <CR>
 
     function! s:unite_my_settings()
         nnoremap <silent><buffer><expr> s unite#do_action('split')
@@ -209,9 +194,6 @@ NeoBundle 'vim-scripts/L9'
 "csv editing
 NeoBundle 'chrisbra/csv.vim'
 
-"rtags integration
-NeoBundle 'lyuts/vim-rtags'
-
 "additional syntax highlighting
 NeoBundle 'sheerun/vim-polyglot'
 
@@ -243,7 +225,6 @@ filetype plugin indent on
 " this will conveniently prompt you to install them.
 NeoBundleCheck
 
-autocmd FileType cpp,c call SetupNeocomleteForCppWithRtags()
 autocmd FileType python call SetupNeocomleteForPython()
 autocmd FileType unite call s:unite_my_settings()
 
