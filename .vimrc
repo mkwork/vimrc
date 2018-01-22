@@ -140,7 +140,16 @@ NeoBundle 'vim-airline/vim-airline-themes'
 NeoBundle 'tpope/vim-rails'
 NeoBundle 'DoxygenToolkit.vim'
 NeoBundle 'xml.vim'
+
 NeoBundle 'jtratner/vim-flavored-markdown'
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" markdown
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:vim_markdown_folding_disabled = 1
+NeoBundle 'godlygeek/tabular'
+NeoBundle 'plasticboy/vim-markdown'
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
 NeoBundle 'CodeReviewer.vim'
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
