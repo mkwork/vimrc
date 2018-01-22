@@ -86,6 +86,12 @@ if version >= 703
     NeoBundle 'prabirshrestha/vim-lsp'
 
     """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+    " switch impl/header
+    """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+    NeoBundle 'ericcurtin/CurtineIncSw.vim'
+    map <F4> :call CurtineIncSw()<CR>
+
+    """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
     "Unite (files search)
     """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
     NeoBundle 'Shougo/unite.vim'
