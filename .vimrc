@@ -78,6 +78,13 @@ if version >= 703
     """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
     NeoBundle 'tpope/vim-dispatch'
 
+    
+    """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+    " vim-lsp
+    """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+    NeoBundle 'prabirshrestha/async.vim'
+    NeoBundle 'prabirshrestha/vim-lsp'
+
     """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
     "Unite (files search)
     """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -518,6 +525,18 @@ let g:startify_session_persistence = 1
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " be iMproved
 set nocompatible               
+
+if executable('cquery')
+    au User lsp_setup call lsp#register_server({
+                \ 'name': 'cquery',
+                \ 'cmd': {server_info->['cquery', '--language-server', '--log-file', '/home/maxim/.cquery/log']},
+                \ 'root_uri': {server_info->lsp#utils#path_to_uri(lsp#utils#find_nearest_parent_file_directory(lsp#utils#get_buffer_path(), 'compile_commands.json'))},
+                \ 'initialization_options': { 'cacheDirectory': '/home/maxim/.cquery/cache/' },
+                \ 'whitelist': ['c', 'cpp', 'objc', 'objcpp'],
+                \ })
+endif
+
+autocmd FileType cpp setlocal omnifunc=lsp#complete
 
 
 augroup FileType *
