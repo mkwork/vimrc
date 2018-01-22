@@ -72,3 +72,4 @@ function sleep_until {
 }
 
 bind '\C-f:unix-filename-rubout'
+export SOH=$'\001'
