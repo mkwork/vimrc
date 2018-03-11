@@ -84,6 +84,8 @@ if version >= 703
     """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
     NeoBundle 'prabirshrestha/async.vim'
     NeoBundle 'prabirshrestha/vim-lsp'
+    nnoremap <leader>ld :LspDefinition<CR>
+    nnoremap <leader>lr :LspReferences<CR>
 
     """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
     " switch impl/header
