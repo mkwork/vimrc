@@ -84,8 +84,6 @@ if version >= 703
     """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
     NeoBundle 'prabirshrestha/async.vim'
     NeoBundle 'prabirshrestha/vim-lsp'
-    nnoremap <leader>ld :LspDefinition<CR>
-    nnoremap <leader>lr :LspReferences<CR>
 
     """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
     " switch impl/header
@@ -121,8 +119,8 @@ let python_highlight_all=1
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "Syntastic 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-NeoBundle 'scrooloose/syntastic'
-let g:syntastic_auto_loc_list = 0
+"NeoBundle 'scrooloose/syntastic'
+"let g:syntastic_auto_loc_list = 0
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "HowMuch calculations 
@@ -348,8 +346,6 @@ imap jk <ESC>
 " More frequent saving in insert mode
 inoremap <CR> <c-g>u<CR>
 
-" Space leader [experimental]
-let mapleader = "\<Space>"
 
 " Source range 
 function! SourceRange() range
@@ -555,3 +551,11 @@ autocmd FileType cpp setlocal omnifunc=lsp#complete
 augroup FileType *
     autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o formatoptions+=j
 augroup END
+
+" keybindings
+
+" Space leader [experimental]
+let mapleader = "\<Space>"
+
+nnoremap <Leader>ld :LspDefinition<CR>
+nnoremap <leader>lr :LspReferences<CR>
