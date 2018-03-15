@@ -1,3 +1,4 @@
+set nocompatible               
 " Note: Skip initialization for vim-tiny or vim-small.
 if !1 | finish | endif
 
@@ -84,6 +85,8 @@ if version >= 703
     """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
     NeoBundle 'prabirshrestha/async.vim'
     NeoBundle 'prabirshrestha/vim-lsp'
+    NeoBundle 'prabirshrestha/asyncomplete.vim'
+    NeoBundle 'prabirshrestha/asyncomplete-lsp.vim'
 
     """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
     " switch impl/header
@@ -95,7 +98,6 @@ if version >= 703
     "Unite (files search)
     """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
     NeoBundle 'Shougo/unite.vim'
-    nnoremap <silent> <c-k><c-f>  :Unite buffer file_rec -start-insert <CR>
 
     function! s:unite_my_settings()
         nnoremap <silent><buffer><expr> s unite#do_action('split')
@@ -259,19 +261,30 @@ autocmd FileType unite call s:unite_my_settings()
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Apperance
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-set background=dark
-set term=screen-256color
-set t_Co=256
+"set background=dark
+"set term=screen-256color
+"set t_Co=256
 set noswapfile
 "colorscheme darcula
 
 let my_colorscheme = 'desert'
 
-"if version >= 800
-  "set t_Co=256
-  "set termguicolors
-  "execute 'colorscheme '.my_colorscheme
-if version >= 700 && &term != 'cygwin' && !has('gui_running')
+if version >= 800
+    "set t_Co=256
+    "set t_8f=^[[38;2;%lu;%lu;%lum
+    "set t_8b=^[[48;2;%lu;%lu;%lum 
+
+    "let &t_8f = "\<Esc>[38:2:%lu:%lu:%lum"
+    "let &t_8b = "\<Esc>[48:2:%lu:%lu:%lum"
+
+    " Makes the background transparent. Leave these out if you're not using a transparent
+    " terminal.
+    "highlight Normal ctermbg=NONE guibg=NONE
+    "highlight NonText ctermbg=NONE guibg=NONE
+    set termguicolors
+    execute 'colorscheme '.my_colorscheme
+
+elseif version >= 700 && &term != 'cygwin' && !has('gui_running')
   " In the color terminal, try to use CSApprox.vim plugin or
   " guicolorscheme.vim plugin if possible in order to have consistent
   " colors on different terminals.
@@ -295,8 +308,7 @@ if version >= 700 && &term != 'cygwin' && !has('gui_running')
       let s:use_guicolorscheme = 1
     endif
   endif
-endif
-if exists('s:use_CSApprox')
+elseif exists('s:use_CSApprox')
   " Can use the CSApprox.vim plugin.
   let g:CSApprox_attr_map = { 'bold' : 'bold', 'italic' : '', 'sp' : '' }
   execute 'colorscheme '.my_colorscheme
@@ -535,6 +547,14 @@ let g:startify_session_persistence = 1
 " be iMproved
 set nocompatible               
 
+"if executable('clangd')
+    "au User lsp_setup call lsp#register_server({
+                "\ 'name': 'clangd',
+                "\ 'cmd': {server_info->['clangd']},
+                "\ 'whitelist': ['c', 'cpp', 'objc', 'objcpp'],
+                "\ })
+"endif
+
 if executable('cquery')
     au User lsp_setup call lsp#register_server({
                 \ 'name': 'cquery',
@@ -559,3 +579,18 @@ let mapleader = "\<Space>"
 
 nnoremap <Leader>ld :LspDefinition<CR>
 nnoremap <leader>lr :LspReferences<CR>
+
+let g:airline#extensions#tabline#buffer_idx_mode = 1
+nmap <leader>1 <Plug>AirlineSelectTab1
+nmap <leader>2 <Plug>AirlineSelectTab2
+nmap <leader>3 <Plug>AirlineSelectTab3
+nmap <leader>4 <Plug>AirlineSelectTab4
+nmap <leader>5 <Plug>AirlineSelectTab5
+nmap <leader>6 <Plug>AirlineSelectTab6
+nmap <leader>7 <Plug>AirlineSelectTab7
+nmap <leader>8 <Plug>AirlineSelectTab8
+nmap <leader>9 <Plug>AirlineSelectTab9
+nmap <C-p> <Plug>AirlineSelectPrevTab<CR>
+nmap <C-n> <Plug>AirlineSelectNextTab
+
+nnoremap <silent> <c-k><c-f>  :Unite buffer file_rec/async -start-insert <CR>
