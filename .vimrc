@@ -88,6 +88,14 @@ if version >= 703
     NeoBundle 'prabirshrestha/asyncomplete.vim'
     NeoBundle 'prabirshrestha/asyncomplete-lsp.vim'
 
+    """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+    " moderate
+    """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+    NeoBundle 'rhysd/vim-clang-format'
+    NeoBundle 'qpkorr/vim-bufkill'
+    NeoBundle 'dhruvasagar/vim-zoom'
+
+
     """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
     " switch impl/header
     """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
