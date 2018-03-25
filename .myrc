@@ -16,7 +16,7 @@ HISTFILESIZE=
 alias gvimr='gvim --remote-tab-silent'
 alias tmux='tmux -2'
 function tmux-session {
-    session=$1
+    session="$1"
     tmux attach $2 -t $session || tmux new -s $session
 }
 
@@ -38,10 +38,9 @@ export GIT_PAGER="vim - -R -c ':AnsiEsc'"
 
 alias vim-esc="vim -R -c ':AnsiEsc'"
 
-session=$((tmux list-session | grep attached | cut -f 1 -d ':') 2>/dev/null)
-if [ ! -z $session ]
+if [ ! -z "$TMUX" ]
 then
-    export SANDBOX=:${session}
+    export SANDBOX=":$(tmux display-message -p '#S')"
 fi
 
 # two line prompt
