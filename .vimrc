@@ -47,6 +47,19 @@ if version >= 703
         let g:neocomplete#force_omni_input_patterns.python = '\%([^. \t]\.\|^\s*@\|^\s*from\s.\+import \|^\s*from \|^\s*import \)\w*'
     endfunction
 
+    function! SetupNeocomleteForCpp()
+        NeoCompleteEnable
+        setlocal omnifunc=jedi#completions
+        setlocal omnifunc=lsp#complete
+
+
+        if !exists('g:neocomplete#force_omni_input_patterns')
+            let g:neocomplete#force_omni_input_patterns = {}
+        endif
+
+        let g:neocomplete#sources#omni#input_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
+    endfunction
+
     """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
     "snippets
     """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -85,8 +98,8 @@ if version >= 703
     """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
     NeoBundle 'prabirshrestha/async.vim'
     NeoBundle 'prabirshrestha/vim-lsp'
-    NeoBundle 'prabirshrestha/asyncomplete.vim'
-    NeoBundle 'prabirshrestha/asyncomplete-lsp.vim'
+    "NeoBundle 'prabirshrestha/asyncomplete.vim'
+    "NeoBundle 'prabirshrestha/asyncomplete-lsp.vim'
 
     """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
     " moderate
@@ -118,6 +131,15 @@ if version >= 703
 endif
 
 " My Bundles here:
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Local vimrc
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+NeoBundle 'embear/vim-localvimrc'
+let g:localvimrc_persistent = 2
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" NERDTree
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 NeoBundle 'scrooloose/nerdtree'
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -263,6 +285,7 @@ filetype plugin indent on
 NeoBundleCheck
 
 autocmd FileType python call SetupNeocomleteForPython()
+autocmd FileType c,cpp call SetupNeocomleteForCpp()
 autocmd FileType unite call s:unite_my_settings()
 
 
@@ -275,7 +298,7 @@ set background=dark
 set noswapfile
 "colorscheme darcula
 
-let my_colorscheme = 'desert'
+let my_colorscheme = 'desertEx'
 "let my_colorscheme = 'gruvbox'
 
 if version >= 800
@@ -575,7 +598,8 @@ if executable('cquery')
                 \ })
 endif
 
-autocmd FileType cpp setlocal omnifunc=lsp#complete
+"autocmd FileType cpp setlocal omnifunc=lsp#complete
+"let g:neocomplete#sources#omni#input_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
 
 
 augroup FileType *
@@ -600,7 +624,7 @@ nmap <leader>6 <Plug>AirlineSelectTab6
 nmap <leader>7 <Plug>AirlineSelectTab7
 nmap <leader>8 <Plug>AirlineSelectTab8
 nmap <leader>9 <Plug>AirlineSelectTab9
-nmap <C-p> <Plug>AirlineSelectPrevTab<CR>
-nmap <C-n> <Plug>AirlineSelectNextTab
+nmap <leader><C-p> <Plug>AirlineSelectPrevTab<CR>
+nmap <leader><C-n> <Plug>AirlineSelectNextTab
 
 nnoremap <silent> <c-k><c-f>  :Unite buffer file_rec/async -start-insert <CR>
