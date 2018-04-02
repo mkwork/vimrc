@@ -49,7 +49,6 @@ if version >= 703
 
     function! SetupNeocomleteForCpp()
         NeoCompleteEnable
-        setlocal omnifunc=jedi#completions
         setlocal omnifunc=lsp#complete
 
 
