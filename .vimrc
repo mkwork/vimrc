@@ -51,6 +51,9 @@ if version >= 703
         NeoCompleteEnable
         setlocal omnifunc=lsp#complete
 
+        let g:lsp_complete_config['abbr']='detail'
+        EchoDocEnable
+        set cmdheight=2
 
         if !exists('g:neocomplete#force_omni_input_patterns')
             let g:neocomplete#force_omni_input_patterns = {}
@@ -623,7 +626,8 @@ nmap <leader>6 <Plug>AirlineSelectTab6
 nmap <leader>7 <Plug>AirlineSelectTab7
 nmap <leader>8 <Plug>AirlineSelectTab8
 nmap <leader>9 <Plug>AirlineSelectTab9
-nmap <leader><C-p> <Plug>AirlineSelectPrevTab<CR>
-nmap <leader><C-n> <Plug>AirlineSelectNextTab
+nmap <leader>k <Plug>AirlineSelectPrevTab<CR>
+nmap <leader>j <Plug>AirlineSelectNextTab<CR>
+nmap <leader>D :BD<CR>
 
 nnoremap <silent> <c-k><c-f>  :Unite buffer file_rec/async -start-insert <CR>
