@@ -51,7 +51,8 @@ if version >= 703
         NeoCompleteEnable
         setlocal omnifunc=lsp#complete
 
-        let g:lsp_complete_config['abbr']='detail'
+        let g:lsp_complete_config['abbr']='label'
+        let g:lsp_complete_config['info']='detail'
         EchoDocEnable
         set cmdheight=2
 
@@ -626,6 +627,8 @@ nmap <leader>6 <Plug>AirlineSelectTab6
 nmap <leader>7 <Plug>AirlineSelectTab7
 nmap <leader>8 <Plug>AirlineSelectTab8
 nmap <leader>9 <Plug>AirlineSelectTab9
+nmap <leader>h <Plug>AirlineSelectPrevTab<CR>
+nmap <leader>l <Plug>AirlineSelectNextTab<CR>
 nmap <leader>k <Plug>AirlineSelectPrevTab<CR>
 nmap <leader>j <Plug>AirlineSelectNextTab<CR>
 nmap <leader>D :BD<CR>
