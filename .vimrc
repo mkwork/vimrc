@@ -31,7 +31,13 @@ if version >= 703
     """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
     "Neocomplete 
     """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-    NeoBundle 'Shougo/neocomplete.vim'
+    "NeoBundle 'Shougo/neocomplete.vim'
+    NeoBundle 'Shougo/deoplete.nvim'
+    if !has('nvim')
+        NeoBundle 'roxma/nvim-yarp'
+        NeoBundle 'roxma/vim-hug-neovim-rpc'
+    endif
+    let g:deoplete#enable_at_startup = 1
 
     " alternative pattern: '\h\w*\|[^. \t]\.\w*'
     function! SetupNeocomleteForPython()
@@ -48,7 +54,7 @@ if version >= 703
     endfunction
 
     function! SetupNeocomleteForCpp()
-        NeoCompleteEnable
+        "NeoCompleteEnable
         setlocal omnifunc=lsp#complete
 
         let g:lsp_complete_config['abbr']='label'
@@ -56,11 +62,11 @@ if version >= 703
         EchoDocEnable
         set cmdheight=2
 
-        if !exists('g:neocomplete#force_omni_input_patterns')
-            let g:neocomplete#force_omni_input_patterns = {}
+        if !exists('g:deoplete#omni_patterns')
+            let g:deoplete#omni_patterns = {}
         endif
 
-        let g:neocomplete#sources#omni#input_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
+        let g:deoplete#omni_patterns.cpp = ['[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::', '#']
     endfunction
 
     """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -634,3 +640,6 @@ nmap <leader>j <Plug>AirlineSelectNextTab<CR>
 nmap <leader>D :BD<CR>
 
 nnoremap <silent> <c-k><c-f>  :Unite buffer file_rec/async -start-insert <CR>
+
+" repeat last ex
+nnoremap <leader>. :<Up><CR>
