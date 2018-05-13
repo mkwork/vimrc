@@ -270,7 +270,7 @@ NeoBundle 'chrisbra/csv.vim'
 NeoBundle 'sheerun/vim-polyglot'
 
 " colorscheme scroller
-NeoBundle 'qualiabyte/vim-colorstepper'
+"NeoBundle 'qualiabyte/vim-colorstepper'
 
 " Ansi esc
 NeoBundle 'vim-scripts/AnsiEsc.vim'
