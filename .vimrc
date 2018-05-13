@@ -59,8 +59,8 @@ if version >= 703
         "NeoCompleteEnable
         setlocal omnifunc=lsp#complete
 
-        let g:lsp_complete_config['abbr']='label'
-        let g:lsp_complete_config['info']='detail'
+        "let g:lsp_complete_config['abbr']='label'
+        "let g:lsp_complete_config['info']='detail'
         EchoDocEnable
         set cmdheight=2
 
@@ -104,6 +104,17 @@ if version >= 703
     NeoBundle 'tpope/vim-dispatch'
 
     
+    """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+    " vim-fzf
+    """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+    NeoBundle 'junegunn/fzf'
+    NeoBundle 'junegunn/fzf.vim'
+
+    """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+    " echodoc
+    """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+    NeoBundle 'Shougo/echodoc.vim'
+
     """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
     " vim-lsp
     """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
