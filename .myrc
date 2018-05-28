@@ -9,8 +9,9 @@ HISTCONTROL=ignoreboth
 shopt -s histappend
 
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
-HISTSIZE=
-HISTFILESIZE=
+export HISTSIZE=
+export HISTFILESIZE=
+export HISTCONTROL=ignoreboth:erasedups
 
 #gvim console entry
 alias gvimr='gvim --remote-tab-silent'
