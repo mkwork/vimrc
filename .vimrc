@@ -743,3 +743,7 @@ nnoremap <silent> <c-k><c-f>  :Files<CR>
 nnoremap <silent> <c-k><c-l>  :Lines<CR>
 nnoremap <silent> <c-k>l  :BLines<CR>
 nnoremap <silent> <c-k><c-a>  :Ag<CR>
+
+set keymap=russian-jcukenwin
+set iminsert=0
+set imsearch=0
