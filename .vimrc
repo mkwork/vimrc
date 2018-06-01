@@ -754,6 +754,7 @@ nnoremap <silent> <c-k><c-f>  :Files<CR>
 nnoremap <silent> <c-k><c-l>  :Lines<CR>
 nnoremap <silent> <c-k>l  :BLines<CR>
 nnoremap <silent> <c-k><c-a>  :Ag<CR>
+nnoremap <silent> <c-k><c-h>  :History:<CR>
 
 set keymap=russian-jcukenwin
 set iminsert=0
