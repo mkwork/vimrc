@@ -111,6 +111,11 @@ if version >= 703
 
     
     """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+    " vim-winswap
+    """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+    NeoBundle 'wesQ3/vim-windowswap'
+
+    """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
     " vim-fzf
     """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
     NeoBundle 'junegunn/fzf'
@@ -215,13 +220,19 @@ NeoBundle 'scrooloose/nerdcommenter'
 NeoBundle 'jansenm/vim-cmake'
 NeoBundle 'thinca/vim-ref'
 NeoBundle 'majutsushi/tagbar'
-NeoBundle 'vim-airline/vim-airline'
-NeoBundle 'vim-airline/vim-airline-themes'
 NeoBundle 'tpope/vim-rails'
 NeoBundle 'DoxygenToolkit.vim'
 NeoBundle 'xml.vim'
 
 NeoBundle 'jtratner/vim-flavored-markdown'
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" airline
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+NeoBundle 'vim-airline/vim-airline'
+NeoBundle 'vim-airline/vim-airline-themes'
+let g:airline#extensions#keymap#enabled = 0
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " markdown
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -749,3 +760,7 @@ nnoremap <silent> <c-k><c-f>  :Files<CR>
 nnoremap <silent> <c-k><c-l>  :Lines<CR>
 nnoremap <silent> <c-k>l  :BLines<CR>
 nnoremap <silent> <c-k><c-a>  :Ag<CR>
+
+set keymap=russian-jcukenwin
+set iminsert=0
+set imsearch=0
