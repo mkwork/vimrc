@@ -63,6 +63,9 @@ if version >= 703
 
     function! SetupNeocomleteForCpp()
         "NeoCompleteEnable
+        let &mp='./make.sh'
+        nnoremap <F6> :exe 'AsyncRun' &mp<CR>
+        let b:ale_linters = ['clangtidy']
         setlocal omnifunc=lsp#complete
 
         "let g:lsp_complete_config['abbr']='label'
@@ -109,6 +112,10 @@ if version >= 703
     """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
     NeoBundle 'tpope/vim-dispatch'
 
+    """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+    "asyncrun.vim
+    """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+    NeoBundle 'skywind3000/asyncrun.vim'
     
     """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
     " vim-winswap
@@ -183,6 +190,10 @@ NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'nvie/vim-flake8'
 let python_highlight_all=1
 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"ale 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+NeoBundle 'w0rp/ale'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "Syntastic 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -748,7 +759,7 @@ nnoremap <leader>. :<Up><CR>
 
 " development
 nnoremap <F2> :NERDTreeFind<CR>
-nnoremap <F6> :Make<CR>
+nnoremap <F6> :exe 'AsyncRun' &mp<CR>
 vnoremap <C-i> :ClangFormat<CR>
 nnoremap <leader>qn :cnext<CR>
 nnoremap <leader>qp :cprev<CR>
