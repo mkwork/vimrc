@@ -18,4 +18,4 @@ grep -q "$myrc_init" ~/.bashrc || echo $myrc_init >> ~/.bashrc
 #tmux related
 #make bashr sourcable
 echo 'source ~/.bashrc' >> ~/.bash_profile
-
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
