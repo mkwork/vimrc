@@ -1,4 +1,6 @@
 set nocompatible               
+set ttimeoutlen=50
+
 " Note: Skip initialization for vim-tiny or vim-small.
 if !1 | finish | endif
 
@@ -31,33 +33,51 @@ if version >= 703
     """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
     "Neocomplete 
     """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-    NeoBundle 'Shougo/neocomplete.vim'
+    "NeoBundle 'Shougo/neocomplete.vim'
+    NeoBundle 'Shougo/deoplete.nvim'
+    if !has('nvim')
+        NeoBundle 'roxma/nvim-yarp'
+        NeoBundle 'roxma/vim-hug-neovim-rpc'
+    endif
+    let g:deoplete#enable_at_startup = 1
 
     " alternative pattern: '\h\w*\|[^. \t]\.\w*'
     function! SetupNeocomleteForPython()
-        NeoCompleteEnable
+        "NeoCompleteEnable
         setlocal omnifunc=jedi#completions
         let g:jedi#completions_enabled = 0
         let g:jedi#auto_vim_configuration = 0
 
-        if !exists('g:neocomplete#force_omni_input_patterns')
-            let g:neocomplete#force_omni_input_patterns = {}
+        "if !exists('g:neocomplete#force_omni_input_patterns')
+            "let g:neocomplete#force_omni_input_patterns = {}
+        "endif
+
+        "let g:neocomplete#force_omni_input_patterns.python = '\%([^. \t]\.\|^\s*@\|^\s*from\s.\+import \|^\s*from \|^\s*import \)\w*'
+
+        if !exists('g:deoplete#omni_patterns')
+            let g:deoplete#omni_patterns = {}
         endif
 
-        let g:neocomplete#force_omni_input_patterns.python = '\%([^. \t]\.\|^\s*@\|^\s*from\s.\+import \|^\s*from \|^\s*import \)\w*'
+        let g:deoplete#omni_patterns.python = '\%([^. \t]\.\|^\s*@\|^\s*from\s.\+import \|^\s*from \|^\s*import \)\w*'
     endfunction
 
     function! SetupNeocomleteForCpp()
-        NeoCompleteEnable
-        setlocal omnifunc=jedi#completions
+        "NeoCompleteEnable
+        let &mp='./make.sh'
+        nnoremap <F6> :exe 'AsyncRun' &mp<CR>
+        let b:ale_linters = ['clangtidy']
         setlocal omnifunc=lsp#complete
 
+        "let g:lsp_complete_config['abbr']='label'
+        "let g:lsp_complete_config['info']='detail'
+        EchoDocEnable
+        set cmdheight=2
 
-        if !exists('g:neocomplete#force_omni_input_patterns')
-            let g:neocomplete#force_omni_input_patterns = {}
+        if !exists('g:deoplete#omni_patterns')
+            let g:deoplete#omni_patterns = {}
         endif
 
-        let g:neocomplete#sources#omni#input_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
+        let g:deoplete#omni_patterns.cpp = ['[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::', '#']
     endfunction
 
     """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -92,10 +112,32 @@ if version >= 703
     """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
     NeoBundle 'tpope/vim-dispatch'
 
+    """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+    "asyncrun.vim
+    """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+    NeoBundle 'skywind3000/asyncrun.vim'
     
+    """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+    " vim-winswap
+    """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+    NeoBundle 'wesQ3/vim-windowswap'
+
+    """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+    " vim-fzf
+    """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+    NeoBundle 'junegunn/fzf'
+    NeoBundle 'junegunn/fzf.vim'
+
+    """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+    " echodoc
+    """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+    NeoBundle 'Shougo/echodoc.vim'
+
     """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
     " vim-lsp
     """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+    let g:lsp_signs_enabled = 1         " enable signs
+    let g:lsp_diagnostics_echo_cursor = 1 " enable echo under cursor when in normal mode
     NeoBundle 'prabirshrestha/async.vim'
     NeoBundle 'prabirshrestha/vim-lsp'
     "NeoBundle 'prabirshrestha/asyncomplete.vim'
@@ -149,6 +191,10 @@ NeoBundle 'nvie/vim-flake8'
 let python_highlight_all=1
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"ale 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+NeoBundle 'w0rp/ale'
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "Syntastic 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "NeoBundle 'scrooloose/syntastic'
@@ -185,13 +231,19 @@ NeoBundle 'scrooloose/nerdcommenter'
 NeoBundle 'jansenm/vim-cmake'
 NeoBundle 'thinca/vim-ref'
 NeoBundle 'majutsushi/tagbar'
-NeoBundle 'vim-airline/vim-airline'
-NeoBundle 'vim-airline/vim-airline-themes'
 NeoBundle 'tpope/vim-rails'
 NeoBundle 'DoxygenToolkit.vim'
 NeoBundle 'xml.vim'
 
 NeoBundle 'jtratner/vim-flavored-markdown'
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" airline
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+NeoBundle 'vim-airline/vim-airline'
+NeoBundle 'vim-airline/vim-airline-themes'
+let g:airline#extensions#keymap#enabled = 0
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " markdown
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -257,7 +309,7 @@ NeoBundle 'chrisbra/csv.vim'
 NeoBundle 'sheerun/vim-polyglot'
 
 " colorscheme scroller
-NeoBundle 'qualiabyte/vim-colorstepper'
+"NeoBundle 'qualiabyte/vim-colorstepper'
 
 " Ansi esc
 NeoBundle 'vim-scripts/AnsiEsc.vim'
@@ -288,6 +340,76 @@ autocmd FileType python call SetupNeocomleteForPython()
 autocmd FileType c,cpp call SetupNeocomleteForCpp()
 autocmd FileType unite call s:unite_my_settings()
 
+
+" BufOnly.vim  -  Delete all the buffers except the current/named buffer.
+"
+" Copyright November 2003 by Christian J. Robinson <infynity@onewest.net>
+"
+" Distributed under the terms of the Vim license.  See ":help license".
+"
+" Usage:
+"
+" :Bonly / :BOnly / :Bufonly / :BufOnly [buffer]
+"
+" Without any arguments the current buffer is kept.  With an argument the
+" buffer name/number supplied is kept.
+
+command! -nargs=? -complete=buffer -bang Bonly
+            \ :call BufOnly('<args>', '<bang>')
+command! -nargs=? -complete=buffer -bang BOnly
+            \ :call BufOnly('<args>', '<bang>')
+command! -nargs=? -complete=buffer -bang Bufonly
+            \ :call BufOnly('<args>', '<bang>')
+command! -nargs=? -complete=buffer -bang BufOnly
+            \ :call BufOnly('<args>', '<bang>')
+
+function! BufOnly(buffer, bang)
+    if a:buffer == ''
+        " No buffer provided, use the current buffer.
+        let buffer = bufnr('%')
+    elseif (a:buffer + 0) > 0
+        " A buffer number was provided.
+        let buffer = bufnr(a:buffer + 0)
+    else
+        " A buffer name was provided.
+        let buffer = bufnr(a:buffer)
+    endif
+
+    if buffer == -1
+        echohl ErrorMsg
+        echomsg "No matching buffer for" a:buffer
+        echohl None
+        return
+    endif
+
+    let last_buffer = bufnr('$')
+
+    let delete_count = 0
+    let n = 1
+    while n <= last_buffer
+        if n != buffer && buflisted(n)
+            if a:bang == '' && getbufvar(n, '&modified')
+                echohl ErrorMsg
+                echomsg 'No write since last change for buffer'
+                            \ n '(add ! to override)'
+                echohl None
+            else
+                silent exe 'bdel' . a:bang . ' ' . n
+                if ! buflisted(n)
+                    let delete_count = delete_count+1
+                endif
+            endif
+        endif
+        let n = n+1
+    endwhile
+
+    if delete_count == 1
+        echomsg delete_count "buffer deleted"
+    elseif delete_count > 1
+        echomsg delete_count "buffers deleted"
+    endif
+
+endfunction
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Apperance
@@ -624,7 +746,33 @@ nmap <leader>6 <Plug>AirlineSelectTab6
 nmap <leader>7 <Plug>AirlineSelectTab7
 nmap <leader>8 <Plug>AirlineSelectTab8
 nmap <leader>9 <Plug>AirlineSelectTab9
-nmap <leader><C-p> <Plug>AirlineSelectPrevTab<CR>
-nmap <leader><C-n> <Plug>AirlineSelectNextTab
+nmap <leader>h <Plug>AirlineSelectPrevTab<CR>
+nmap <leader>l <Plug>AirlineSelectNextTab<CR>
+nmap <leader>k <Plug>AirlineSelectPrevTab<CR>
+nmap <leader>j <Plug>AirlineSelectNextTab<CR>
+nmap <leader>D :BD<CR>
 
 nnoremap <silent> <c-k><c-f>  :Unite buffer file_rec/async -start-insert <CR>
+
+" repeat last ex
+nnoremap <leader>. :<Up><CR>
+
+" development
+nnoremap <F2> :NERDTreeFind<CR>
+nnoremap <F6> :exe 'AsyncRun' &mp<CR>
+vnoremap <C-i> :ClangFormat<CR>
+nnoremap <leader>qn :cnext<CR>
+nnoremap <leader>qp :cprev<CR>
+nnoremap <leader>yf :let @" = expand("%:p")<CR>
+nnoremap <leader>yfn :let @" = expand("%:t")<CR>
+
+" fzf
+nnoremap <silent> <c-k><c-f>  :Files<CR>
+nnoremap <silent> <c-k><c-l>  :Lines<CR>
+nnoremap <silent> <c-k>l  :BLines<CR>
+nnoremap <silent> <c-k><c-a>  :Ag<CR>
+nnoremap <silent> <c-k><c-h>  :History:<CR>
+
+set keymap=russian-jcukenwin
+set iminsert=0
+set imsearch=0
