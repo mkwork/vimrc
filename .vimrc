@@ -68,8 +68,6 @@ if version >= 703
         let b:ale_linters = ['clangtidy']
         setlocal omnifunc=lsp#complete
 
-        "let g:lsp_complete_config['abbr']='label'
-        "let g:lsp_complete_config['info']='detail'
         EchoDocEnable
         set cmdheight=2
 
@@ -79,6 +77,11 @@ if version >= 703
 
         let g:deoplete#omni_patterns.cpp = ['[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::', '#']
     endfunction
+
+    """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+    "cmake completion
+    """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+    NeoBundle 'richq/vim-cmake-completion'
 
     """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
     "snippets
@@ -115,7 +118,9 @@ if version >= 703
     """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
     "asyncrun.vim
     """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+    let g:asyncrun_bell=1
     NeoBundle 'skywind3000/asyncrun.vim'
+    autocmd User AsyncRunStop cw
     
     """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
     " vim-winswap
@@ -710,7 +715,15 @@ set nocompatible
                 "\ })
 "endif
 
-if executable('cquery')
+if executable('ccls')
+    au User lsp_setup call lsp#register_server({
+                \ 'name': 'ccls',
+                \ 'cmd': {server_info->['ccls', '--log-file', '/home/maxim/.cquery/log']},
+                \ 'root_uri': {server_info->lsp#utils#path_to_uri(lsp#utils#find_nearest_parent_file_directory(lsp#utils#get_buffer_path(), 'compile_commands.json'))},
+                \ 'initialization_options': { 'cacheDirectory': '/home/maxim/.cquery/cache/' },
+                \ 'whitelist': ['c', 'cpp', 'objc', 'objcpp'],
+                \ })
+elseif executable('cquery')
     au User lsp_setup call lsp#register_server({
                 \ 'name': 'cquery',
                 \ 'cmd': {server_info->['cquery', '--language-server', '--log-file', '/home/maxim/.cquery/log']},
