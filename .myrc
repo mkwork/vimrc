@@ -52,11 +52,11 @@ then
     cat ${hist_old} ${HISTFILE} > ${tmp_file} 2>/dev/null
     awk '!seen[$0]++' ${tmp_file} > ${HISTFILE}
     rm -f ${tmp_file}
-    SANDBOX_STR=":${SANDBOX}"
+    SANDBOX_STR="${SANDBOX}:"
 fi
 
 # two line prompt
-PS1="[\[\033[0m\]\[\033[1;36m\]\u@\h${SANDBOX_STR}:\[\033[32m\]\w]\[\033[1;33m\]\n-> \[\033[0m\]"
+PS1="[\[\033[0m\]\[\033[1;36m\]${SANDBOX_STR}\u@\h:\[\033[32m\]\w]\[\033[1;33m\]\n-> \[\033[0m\]"
 
 vimrc_dir=$(dirname $(readlink ~/.myrc))
 export PATH="$PATH:$vimrc_dir/scripts/"
