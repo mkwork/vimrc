@@ -41,22 +41,23 @@ alias vim-esc="vim -R -c ':AnsiEsc'"
 
 if [ ! -z "$TMUX" ]
 then
-    export SANDBOX="$(tmux display-message -p '#S')"
+    export MK_SANDBOX__="$(tmux display-message -p '#S')"
 fi
 
-if [ ! -z "$SANDBOX" ]
+if [ ! -z "$MK_SANDBOX__" ]
 then
     hist_old=${HISTFILE}
-    export HISTFILE="${hist_old}_${SANDBOX}"
+    export HISTFILE="${hist_old}_${MK_SANDBOX__}"
+    #echo "$MK_SANDBOX__ $hist_old : $HISTFILE"
     tmp_file=$(mktemp)
     cat ${hist_old} ${HISTFILE} > ${tmp_file} 2>/dev/null
     awk '!seen[$0]++' ${tmp_file} > ${HISTFILE}
     rm -f ${tmp_file}
-    SANDBOX_STR="${SANDBOX}:"
+    MK_SANDBOX___STR="${MK_SANDBOX__}:"
 fi
 
 # two line prompt
-PS1="[\[\033[0m\]\[\033[1;36m\]${SANDBOX_STR}\u@\h:\[\033[32m\]\w]\[\033[1;33m\]\n-> \[\033[0m\]"
+PS1="[\[\033[0m\]\[\033[1;36m\]${MK_SANDBOX___STR}\u@\h:\[\033[32m\]\w]\[\033[1;33m\]\n-> \[\033[0m\]"
 
 vimrc_dir=$(dirname $(readlink ~/.myrc))
 export PATH="$PATH:$vimrc_dir/scripts/"
@@ -86,5 +87,8 @@ export SOH=$'\001'
 
 bind '\C-f:unix-filename-rubout'
 export SOH=$'\001'
+
+export PATH="${PATH}":/home/maxim/vimrc/dasht/bin
+export MANPATH="${MANPATH}":/home/maxim/vimrc/dasht/bin
 
 #export FZF_CTRL_T_OPTS="--preview '(highlight -O ansi -l {} 2> /dev/null || cat {} || tree -C {}) 2> /dev/null | head -200'"
