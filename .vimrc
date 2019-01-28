@@ -76,6 +76,7 @@ if version >= 703
         endif
 
         let g:deoplete#omni_patterns.cpp = ['[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::', '#']
+        set syntax=cpp.doxygen
     endfunction
 
     """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -271,12 +272,13 @@ autocmd  FileType python let b:did_ftplugin = 1
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Vdebug debug intrface for python, php, ruby
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-NeoBundle 'joonty/vdebug'
+"NeoBundle 'joonty/vdebug'
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " git integration
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 NeoBundle 'tpope/vim-fugitive'
+NeoBundle 'airblade/vim-gitgutter'
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Nice start screen
@@ -781,6 +783,7 @@ nnoremap <leader>yfn :let @" = expand("%:t")<CR>
 
 " fzf
 nnoremap <silent> <c-k><c-f>  :Files<CR>
+nnoremap <silent> <c-k><c-r>  :Files %:h<CR>
 nnoremap <silent> <c-k><c-l>  :Lines<CR>
 nnoremap <silent> <c-k>l  :BLines<CR>
 nnoremap <silent> <c-k><c-a>  :Ag<CR>
