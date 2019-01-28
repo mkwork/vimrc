@@ -514,9 +514,6 @@ syntax enable on
 " Features 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-" Esc speedup
-imap jk <ESC>
-
 " More frequent saving in insert mode
 inoremap <CR> <c-g>u<CR>
 
