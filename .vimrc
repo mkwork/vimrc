@@ -258,8 +258,6 @@ NeoBundle 'godlygeek/tabular'
 NeoBundle 'plasticboy/vim-markdown'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-NeoBundle 'CodeReviewer.vim'
-
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " jedi-vim (python completion)
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
