@@ -664,12 +664,6 @@ set si "Smart indent
 autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"Code review
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:CodeReviewer_reviewer='Maxim Kot<work.maydjin@gmail.com>'
-let g:CodeReviewer_reviewFile='./review.rev'
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "Markdown
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 augroup markdown
