@@ -88,6 +88,10 @@ then
     bind '\C-f:unix-filename-rubout'
 fi
 
+export MK_COLOR_RED__='\033[0;31m'
+export MK_COLOR_GREEN__='\033[0;32m'
+export MK_COLOR_NC__='\033[0m'
+
 export SOH=$'\001'
 
 export PATH="${PATH}":/home/maxim/vimrc/dasht/bin
@@ -95,4 +99,12 @@ export MANPATH="${MANPATH}":/home/maxim/vimrc/dasht/bin
 
 #export FZF_CTRL_T_OPTS="--preview '(highlight -O ansi -l {} 2> /dev/null || cat {} || tree -C {}) 2> /dev/null | head -200'"
 export FZF_DEFAULT_COMMAND='ag -l .'
-tac $HISTFILE | awk '!x[$0]++' $HISTFILE | sponge -a $HISTFILE
+
+if type sponge 2>&1 > /dev/null;
+then
+    tac $HISTFILE | awk '!x[$0]++' $HISTFILE | sponge -a $HISTFILE
+else
+    printf "${MK_COLOR_RED__}There are no sponge, so history wouldn't be \
+normalized${MK_COLOR_NC__}\n"
+fi
+
