@@ -698,7 +698,6 @@ let g:startify_session_persistence = 1
 " be iMproved
 set nocompatible               
 
-
 if executable('ccls')
     au User lsp_setup call lsp#register_server({
                 \ 'name': 'ccls',

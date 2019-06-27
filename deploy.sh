@@ -13,7 +13,7 @@ ln -sf $(pwd)/.myrc ~/
 
 #bashrc extension
 myrc_init="source ~/.myrc"
-grep -q "$myrc_init" ~/.bashrc || echo $myrc_init >> ~/.bashrc
+grep -q "$myrc_init" ~/.bashrc || printf "\n%s\n" $myrc_init >> ~/.bashrc
 
 #tmux related
 #make bashr sourcable
