@@ -20,6 +20,7 @@ endif
 " Required:
 set runtimepath+=~/.vim/bundle/neobundle.vim/
 
+set langmap=ФИСВУАПРШОЛДЬТЩЗЙКЫЕГМЦЧНЯ;ABCDEFGHIJKLMNOPQRSTUVWXYZ,фисвуапршолдьтщзйкыегмцчня;abcdefghijklmnopqrstuvwxyz
 " Required:
 call neobundle#begin(expand('~/.vim/bundle/'))
 
