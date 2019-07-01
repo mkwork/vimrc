@@ -699,19 +699,18 @@ let g:startify_session_persistence = 1
 " be iMproved
 set nocompatible               
 
-"if executable('clangd')
-    "au User lsp_setup call lsp#register_server({
-                "\ 'name': 'clangd',
-                "\ 'cmd': {server_info->['clangd', '-background-index']},
-                "\ 'whitelist': ['c', 'cpp', 'objc', 'objcpp'],
-                "\ })
-"else
 if executable('ccls')
     au User lsp_setup call lsp#register_server({
                 \ 'name': 'ccls',
                 \ 'cmd': {server_info->['ccls', '--log-file', '/home/maxim/.cquery/log']},
                 \ 'root_uri': {server_info->lsp#utils#path_to_uri(lsp#utils#find_nearest_parent_file_directory(lsp#utils#get_buffer_path(), 'compile_commands.json'))},
                 \ 'initialization_options': { 'cacheDirectory': '/home/maxim/.cquery/cache/' },
+                \ 'whitelist': ['c', 'cpp', 'objc', 'objcpp'],
+                \ })
+elseif executable('clangd')
+    au User lsp_setup call lsp#register_server({
+                \ 'name': 'clangd',
+                \ 'cmd': {server_info->['clangd']},
                 \ 'whitelist': ['c', 'cpp', 'objc', 'objcpp'],
                 \ })
 elseif executable('cquery')
