@@ -1,4 +1,4 @@
-set nocompatible               
+set nocompatible
 set ttimeoutlen=50
 
 " Note: Skip initialization for vim-tiny or vim-small.
@@ -32,7 +32,7 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 " Too cool for centos6 out of box
 if version >= 703
     """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-    "Neocomplete 
+    "Neocomplete
     """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
     "NeoBundle 'Shougo/neocomplete.vim'
     NeoBundle 'Shougo/deoplete.nvim'
@@ -106,7 +106,7 @@ if version >= 703
     "vimproc
     """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
     NeoBundle 'Shougo/vimproc.vim'
-    
+
     """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
     "vim-rsi readline binding
     """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -123,7 +123,7 @@ if version >= 703
     let g:asyncrun_bell=1
     NeoBundle 'skywind3000/asyncrun.vim'
     autocmd User AsyncRunStop cw
-    
+
     """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
     " vim-winswap
     """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -198,24 +198,24 @@ NeoBundle 'nvie/vim-flake8'
 let python_highlight_all=1
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"ale 
+"ale
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 NeoBundle 'w0rp/ale'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"Syntastic 
+"Syntastic
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "NeoBundle 'scrooloose/syntastic'
 "let g:syntastic_auto_loc_list = 0
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"HowMuch calculations 
+"HowMuch calculations
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 NeoBundle 'sk1418/HowMuch'
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"Session management 
+"Session management
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 NeoBundle 'xolox/vim-misc'
 NeoBundle 'xolox/vim-session'
@@ -290,7 +290,7 @@ NeoBundle 'mhinz/vim-startify'
 NeoBundle 'alx741/vinfo'
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"vim-bookmarks 
+"vim-bookmarks
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 NeoBundle 'MattesGroeger/vim-bookmarks'
 let g:bookmark_save_per_working_dir = 1
@@ -432,7 +432,7 @@ let my_colorscheme = 'desertEx'
 if version >= 800
     set t_Co=256
     "set t_8f=^[[38;2;%lu;%lu;%lum
-    "set t_8b=^[[48;2;%lu;%lu;%lum 
+    "set t_8b=^[[48;2;%lu;%lu;%lum
 
     "let &t_8f = "\<Esc>[38:2:%lu:%lu:%lum"
     "let &t_8b = "\<Esc>[48:2:%lu:%lu:%lum"
@@ -510,14 +510,14 @@ set showmatch
 syntax enable on
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Features 
+" Features
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " More frequent saving in insert mode
 inoremap <CR> <c-g>u<CR>
 
 
-" Source range 
+" Source range
 function! SourceRange() range
     let tmpsofile = tempname()
     call writefile(getline(a:firstline, a:lastline), l:tmpsofile)
@@ -597,7 +597,7 @@ endif
 let &cpo = s:save_cpo | unlet s:save_cpo
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Tab closing 
+" Tab closing
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 function! TabCloseRight(bang)
     let cur=tabpagenr()
@@ -615,12 +615,12 @@ endfunction
 command! -bang Tabcloseright call TabCloseRight('<bang>')
 command! -bang Tabcloseleft call TabCloseLeft('<bang>')
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Search 
+" Search
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Ignore case when searching
 set ignorecase
 
-" When searching try to be smart about cases 
+" When searching try to be smart about cases
 set smartcase
 
 " Highlight search results
@@ -635,7 +635,7 @@ set incsearch
 " For regular expressions turn magic on
 set magic
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Search 
+" Search
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set splitright
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -693,11 +693,11 @@ let g:startify_skiplist = ['vimrc',]
 let g:startify_session_persistence = 1
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"NeoBundle 
+"NeoBundle
 "git clone git@github.com:Shougo/neobundle.vim.git
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " be iMproved
-set nocompatible               
+set nocompatible
 
 if executable('ccls')
     au User lsp_setup call lsp#register_server({
