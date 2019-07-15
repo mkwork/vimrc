@@ -681,7 +681,7 @@ let g:tagbar_width = 44
 "vim-airline
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:airline#extensions#tabline#enabled = 1
-let g:airline_theme = 'distinguished'
+let g:airline_theme = 'deus'
 :set laststatus=2
 
 
