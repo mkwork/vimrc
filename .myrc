@@ -101,4 +101,6 @@ export MANPATH="${MANPATH}":/home/maxim/vimrc/dasht/bin
 #export FZF_CTRL_T_OPTS="--preview '(highlight -O ansi -l {} 2> /dev/null || cat {} || tree -C {}) 2> /dev/null | head -200'"
 export FZF_DEFAULT_COMMAND='ag -l .'
 
-nl ${HISTFILE} | sort -k 2|uniq -f 1|sort -n|cut -f 2 > ${HISTFILE}
+nl ${HISTFILE} | sort -k 2|uniq -f 1|sort -n|cut -f 2 > ${HISTFILE}.tmp
+cp ${HISTFILE}.tmp ${HISTFILE} && rm ${HISTFILE}.tmp
+
