@@ -47,7 +47,8 @@ fi
 if [ ! -z "$MK_SANDBOX__" ]
 then
     hist_old=${HISTFILE}
-    export HISTFILE="${hist_old}_${MK_SANDBOX__}"
+    hist_dir=$(dirname ${hist_old})
+    export HISTFILE="${hist_dir}/.bash_history_${MK_SANDBOX__}"
     #echo "$MK_SANDBOX__ $hist_old : $HISTFILE"
     tmp_file=$(mktemp)
     cat ${hist_old} ${HISTFILE} > ${tmp_file} 2>/dev/null
@@ -100,11 +101,6 @@ export MANPATH="${MANPATH}":/home/maxim/vimrc/dasht/bin
 #export FZF_CTRL_T_OPTS="--preview '(highlight -O ansi -l {} 2> /dev/null || cat {} || tree -C {}) 2> /dev/null | head -200'"
 export FZF_DEFAULT_COMMAND='ag -l .'
 
-if type sponge 2>&1 > /dev/null;
-then
-    tac $HISTFILE | awk '!x[$0]++' $HISTFILE | sponge -a $HISTFILE
-else
-    printf "${MK_COLOR_RED__}There are no sponge, so history wouldn't be \
-normalized${MK_COLOR_NC__}\n"
-fi
+nl ${HISTFILE} | sort -k 2|uniq -f 1|sort -n|cut -f 2 > ${HISTFILE}.tmp
+cp ${HISTFILE}.tmp ${HISTFILE} && rm ${HISTFILE}.tmp
 
