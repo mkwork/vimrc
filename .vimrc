@@ -700,12 +700,12 @@ set nocompatible
 
 if executable('ccls')
     au User lsp_setup call lsp#register_server({
-                \ 'name': 'ccls',
-                \ 'cmd': {server_info->['ccls', '--log-file', '/home/maxim/.cquery/log']},
-                \ 'root_uri': {server_info->lsp#utils#path_to_uri(lsp#utils#find_nearest_parent_file_directory(lsp#utils#get_buffer_path(), 'compile_commands.json'))},
-                \ 'initialization_options': { 'cacheDirectory': '/home/maxim/.cquery/cache/' },
-                \ 'whitelist': ['c', 'cpp', 'objc', 'objcpp'],
-                \ })
+      \ 'name': 'ccls',
+      \ 'cmd': {server_info->['ccls']},
+      \ 'root_uri': {server_info->lsp#utils#path_to_uri(lsp#utils#find_nearest_parent_file_directory(lsp#utils#get_buffer_path(), 'compile_commands.json'))},
+      \ 'initialization_options': {'cache': {'directory': '/tmp/ccls/cache' }},
+      \ 'whitelist': ['c', 'cpp', 'objc', 'objcpp', 'cc'],
+      \ })
 elseif executable('clangd')
     au User lsp_setup call lsp#register_server({
                 \ 'name': 'clangd',
