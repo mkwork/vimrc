@@ -323,6 +323,7 @@ NeoBundle 'vim-scripts/AnsiEsc.vim'
 " colorscheme pack
 NeoBundle 'flazz/vim-colorschemes'
 NeoBundle 'blueshirts/darcula'
+NeoBundle 'sainnhe/edge'
 
 "colorscheme converter
 NeoBundle 'vim-scripts/guicolorscheme.vim'
@@ -426,7 +427,8 @@ set background=dark
 set noswapfile
 "colorscheme darcula
 
-let my_colorscheme = 'desertEx'
+let my_colorscheme = 'edge'
+"let my_colorscheme = 'desertEx'
 "let my_colorscheme = 'gruvbox'
 
 if version >= 800
