@@ -95,10 +95,8 @@ export MK_COLOR_NC__='\033[0m'
 
 export SOH=$'\001'
 
-export PATH="${PATH}":/home/maxim/vimrc/dasht/bin
-export MANPATH="${MANPATH}":/home/maxim/vimrc/dasht/bin
+export PATH="${PATH}":~/.x11docker
 
-#export FZF_CTRL_T_OPTS="--preview '(highlight -O ansi -l {} 2> /dev/null || cat {} || tree -C {}) 2> /dev/null | head -200'"
 export FZF_DEFAULT_COMMAND='ag -l .'
 
 nl ${HISTFILE} | sort -k 2|uniq -f 1|sort -n|cut -f 2 > ${HISTFILE}.tmp
