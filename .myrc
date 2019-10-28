@@ -108,4 +108,7 @@ if [ -z "$PS1" ]; then
   shopt -s expand_aliases
   # alias ls='ls --color=always'
   # return
+
 fi
+
+# vi: filetype=sh
