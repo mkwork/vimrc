@@ -31,16 +31,6 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 
 " Too cool for centos6 out of box
 if version >= 703
-    """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-    "Neocomplete
-    """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-    "NeoBundle 'Shougo/neocomplete.vim'
-    NeoBundle 'Shougo/deoplete.nvim'
-    if !has('nvim')
-        NeoBundle 'roxma/nvim-yarp'
-        NeoBundle 'roxma/vim-hug-neovim-rpc'
-    endif
-    let g:deoplete#enable_at_startup = 1
 
     " alternative pattern: '\h\w*\|[^. \t]\.\w*'
     function! SetupNeocomleteForPython()
@@ -145,10 +135,30 @@ if version >= 703
     """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
     let g:lsp_signs_enabled = 1         " enable signs
     let g:lsp_diagnostics_echo_cursor = 1 " enable echo under cursor when in normal mode
+    NeoBundle 'prabirshrestha/asyncomplete.vim'
     NeoBundle 'prabirshrestha/async.vim'
     NeoBundle 'prabirshrestha/vim-lsp'
-    "NeoBundle 'prabirshrestha/asyncomplete.vim'
-    "NeoBundle 'prabirshrestha/asyncomplete-lsp.vim'
+    NeoBundle 'prabirshrestha/asyncomplete-lsp.vim'
+    NeoBundle 'prabirshrestha/asyncomplete-buffer.vim'
+    NeoBundle 'prabirshrestha/asyncomplete-file.vim'
+
+    au User asyncomplete_setup call asyncomplete#register_source(asyncomplete#sources#buffer#get_source_options({
+    \ 'name': 'buffer',
+    \ 'whitelist': ['*'],
+    \ 'blacklist': ['go'],
+    \ 'completor': function('asyncomplete#sources#buffer#completor'),
+    \ 'config': {
+    \    'max_buffer_size': 5000000,
+    \  },
+    \ }))
+
+
+    au User asyncomplete_setup call asyncomplete#register_source(asyncomplete#sources#file#get_source_options({
+    \ 'name': 'file',
+    \ 'whitelist': ['*'],
+    \ 'priority': 10,
+    \ 'completor': function('asyncomplete#sources#file#completor')
+    \ }))
 
     """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
     " moderate
