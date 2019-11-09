@@ -314,6 +314,12 @@ NeoBundle 'mileszs/ack.vim'
 if executable('ag')
     let g:ackprg = 'ag --vimgrep'
 endif
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"goyo.vim - for focusing
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+NeoBundle 'junegunn/goyo.vim'
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "Fast search
 NeoBundle 'vim-scripts/L9'
