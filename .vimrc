@@ -711,6 +711,16 @@ let g:startify_session_persistence = 1
 " be iMproved
 set nocompatible
 
+
+if executable('pyls')
+    " pip install python-language-server
+    au User lsp_setup call lsp#register_server({
+        \ 'name': 'pyls',
+        \ 'cmd': {server_info->['pyls']},
+        \ 'whitelist': ['python'],
+        \ })
+endif
+
 if executable('ccls')
     au User lsp_setup call lsp#register_server({
       \ 'name': 'ccls',
