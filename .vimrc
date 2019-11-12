@@ -293,6 +293,7 @@ NeoBundle 'airblade/vim-gitgutter'
 " Nice start screen
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 NeoBundle 'mhinz/vim-startify'
+let g:startify_change_to_dir = 0
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Info documentation readed
@@ -668,10 +669,6 @@ set smarttab
 " 1 tab == 4 spaces
 set shiftwidth=4
 set tabstop=4
-
-" Linebreak on 100 characters
-set lbr
-set tw=100
 
 set ai "Auto indent
 set si "Smart indent
