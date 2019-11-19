@@ -161,10 +161,15 @@ if version >= 703
     \ }))
 
     """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-    " moderate
+    " clang-format integration
     """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
     NeoBundle 'rhysd/vim-clang-format'
+
+    """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+    " buffer manipulation
+    """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
     NeoBundle 'qpkorr/vim-bufkill'
+
     NeoBundle 'dhruvasagar/vim-zoom'
 
 
@@ -348,6 +353,9 @@ NeoBundle 'godlygeek/csapprox'
 
 "plantuml
 NeoBundle 'aklt/plantuml-syntax'
+
+" codi.vim - NasC replacement
+NeoBundle 'metakirby5/codi.vim'
 
 " Refer to |:NeoBundle-examples|.
 " Note: You don't set neobundle setting in .gvimrc!
