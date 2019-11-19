@@ -9,8 +9,8 @@ HISTCONTROL=ignoreboth
 shopt -s histappend
 
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
-export HISTSIZE="asd"
-export HISTFILESIZE="dsa"
+export HISTSIZE=-1
+export HISTFILESIZE=-1
 export HISTCONTROL=ignoreboth:erasedups
 
 #gvim console entry
