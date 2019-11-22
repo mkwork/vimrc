@@ -99,7 +99,7 @@ export PATH="${PATH}":~/.x11docker
 
 export FZF_DEFAULT_COMMAND='ag -l .'
 
-nl ${HISTFILE} | sort -r -k 1 -n | sort -rk 2| uniq -f 1 | sort -n | cut -f 2 > ${HISTFILE}.tmp
+nl ${HISTFILE} | sort -k2 -k 1,1nr|uniq -f1|sort -n | cut -f 2 > ${HISTFILE}.tmp
 cp ${HISTFILE}.tmp ${HISTFILE} && rm ${HISTFILE}.tmp
 
 
