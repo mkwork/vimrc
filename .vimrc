@@ -452,7 +452,7 @@ set background=dark
 set noswapfile
 "colorscheme darcula
 
-let my_colorscheme = 'edge'
+let my_colorscheme = 'nord'
 "let my_colorscheme = 'desertEx'
 "let my_colorscheme = 'gruvbox'
 
