@@ -336,9 +336,6 @@ NeoBundle 'chrisbra/csv.vim'
 "additional syntax highlighting
 NeoBundle 'sheerun/vim-polyglot'
 
-" colorscheme scroller
-"NeoBundle 'qualiabyte/vim-colorstepper'
-
 " Ansi esc
 NeoBundle 'vim-scripts/AnsiEsc.vim'
 
@@ -784,17 +781,15 @@ nmap <leader>8 <Plug>AirlineSelectTab8
 nmap <leader>9 <Plug>AirlineSelectTab9
 nmap <leader>h <Plug>AirlineSelectPrevTab<CR>
 nmap <leader>l <Plug>AirlineSelectNextTab<CR>
-nmap <leader>k <Plug>AirlineSelectPrevTab<CR>
-nmap <leader>j <Plug>AirlineSelectNextTab<CR>
+nmap <leader>kk <Plug>AirlineSelectPrevTab<CR>
+nmap <leader>jj <Plug>AirlineSelectNextTab<CR>
 nmap <leader>D :BD<CR>
-
-nnoremap <silent> <c-k><c-f>  :Unite buffer file_rec/async -start-insert <CR>
 
 " repeat last ex
 nnoremap <leader>. :<Up><CR>
 
 " development
-nnoremap <F2> :NERDTreeFind<CR>
+nnoremap <silent> <leader>kn :NERDTreeFind<CR>
 nnoremap <F6> :exe 'AsyncRun' &mp<CR>
 vnoremap <C-i> :ClangFormat<CR>
 nnoremap <leader>qn :cnext<CR>
@@ -803,12 +798,12 @@ nnoremap <leader>yf :let @" = expand("%:p")<CR>
 nnoremap <leader>yfn :let @" = expand("%:t")<CR>
 
 " fzf
-nnoremap <silent> <c-k><c-f>  :Files<CR>
-nnoremap <silent> <c-k><c-r>  :Files %:h<CR>
-nnoremap <silent> <c-k><c-l>  :Lines<CR>
-nnoremap <silent> <c-k>l  :BLines<CR>
-nnoremap <silent> <c-k><c-a>  :Ag<CR>
-nnoremap <silent> <c-k><c-h>  :History:<CR>
+nnoremap <silent> <leader>kf  :Files<CR>
+nnoremap <silent> <leader>kr  :Files %:h<CR>
+nnoremap <silent> <leader>kl  :Lines<CR>
+nnoremap <silent> <leader>kb  :BLines<CR>
+nnoremap <silent> <leader>ka  :Ag<CR>
+nnoremap <silent> <leader>kh  :History:<CR>
 
 set keymap=russian-jcukenwin
 set iminsert=0
