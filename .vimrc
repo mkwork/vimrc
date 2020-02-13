@@ -55,7 +55,7 @@ if version >= 703
     function! SetupNeocomleteForCpp()
         "NeoCompleteEnable
         let &mp='./make.sh'
-        nnoremap <F6> :exe 'AsyncRun' &mp<CR>
+        nnoremap <leader>bb :exe 'AsyncRun' &mp<CR>
         let b:ale_linters = ['clangtidy']
         setlocal omnifunc=lsp#complete
 
@@ -804,6 +804,9 @@ nnoremap <silent> <leader>kl  :Lines<CR>
 nnoremap <silent> <leader>kb  :BLines<CR>
 nnoremap <silent> <leader>ka  :Ag<CR>
 nnoremap <silent> <leader>kh  :History:<CR>
+
+" windows
+nnoremap <leader>w <C-w>
 
 set keymap=russian-jcukenwin
 set iminsert=0
