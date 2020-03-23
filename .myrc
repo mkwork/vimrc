@@ -5,6 +5,11 @@ export PROMPT_COMMAND='history -a'
 # See bash(1) for more options
 HISTCONTROL=ignoreboth
 
+export MK_COLOR_RED__='\033[0;31m'
+export MK_COLOR_GREEN__='\033[0;32m'
+export MK_COLOR_NC__='\033[0m'
+export MK_COLOR_CYAN__='\033[0;36m'
+
 # append to the history file, don't overwrite it
 shopt -s histappend
 
@@ -54,11 +59,12 @@ then
     cat ${hist_old} ${HISTFILE} > ${tmp_file} 2>/dev/null
     awk '!seen[$0]++' ${tmp_file} > ${HISTFILE}
     rm -f ${tmp_file}
-    MK_SANDBOX___STR="${MK_SANDBOX__}:"
+    MK_SANDBOX___STR="${MK_COLOR_RED__}${MK_SANDBOX__}${MK_COLOR_NC__}:"
 fi
 
 # two line prompt
-PS1="[\[\033[0m\]\[\033[1;36m\]${MK_SANDBOX___STR}\u@\h:\[\033[32m\]\w]\[\033[1;33m\]\n-> \[\033[0m\]"
+PS1="${MK_COLOR_NC__}${MK_SANDBOX___STR}${MK_COLOR_CYAN__}\
+\u@\h:\[\033[32m\]\w]\[\033[1;33m\]\n-> \[\033[0m\]"
 
 vimrc_dir=$(dirname $(readlink ~/.myrc))
 export PATH="$PATH:$vimrc_dir/scripts/"
@@ -89,9 +95,6 @@ then
     bind '\C-f:unix-filename-rubout'
 fi
 
-export MK_COLOR_RED__='\033[0;31m'
-export MK_COLOR_GREEN__='\033[0;32m'
-export MK_COLOR_NC__='\033[0m'
 
 export SOH=$'\001'
 
