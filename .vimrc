@@ -106,6 +106,7 @@ if version >= 703
     "dispatch.vim
     """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
     NeoBundle 'tpope/vim-dispatch'
+    :let g:dispatch_no_tmux_make=1
 
     """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
     "asyncrun.vim
