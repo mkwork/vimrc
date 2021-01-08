@@ -696,6 +696,8 @@ autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
 augroup markdown
     au!
     au BufNewFile,BufRead *.md,*.markdown setlocal filetype=ghmarkdown
+    set cc=0
+    set wrap
 augroup END
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
