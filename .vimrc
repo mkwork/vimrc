@@ -32,26 +32,6 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 " Too cool for centos6 out of box
 if version >= 703
 
-    " alternative pattern: '\h\w*\|[^. \t]\.\w*'
-    function! SetupNeocomleteForPython()
-        "NeoCompleteEnable
-        setlocal omnifunc=jedi#completions
-        let g:jedi#completions_enabled = 0
-        let g:jedi#auto_vim_configuration = 0
-
-        "if !exists('g:neocomplete#force_omni_input_patterns')
-            "let g:neocomplete#force_omni_input_patterns = {}
-        "endif
-
-        "let g:neocomplete#force_omni_input_patterns.python = '\%([^. \t]\.\|^\s*@\|^\s*from\s.\+import \|^\s*from \|^\s*import \)\w*'
-
-        if !exists('g:deoplete#omni_patterns')
-            let g:deoplete#omni_patterns = {}
-        endif
-
-        let g:deoplete#omni_patterns.python = '\%([^. \t]\.\|^\s*@\|^\s*from\s.\+import \|^\s*from \|^\s*import \)\w*'
-    endfunction
-
     function! SetupNeocomleteForCpp()
         "NeoCompleteEnable
         let &mp='./make.sh'
@@ -137,9 +117,19 @@ if version >= 703
     NeoBundle 'jamessan/vim-gnupg'
 
     """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+    " Vista tagbar
+    """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+    let g:vista_executive_for = {
+                \ 'cpp': 'vim_lsp',
+                \ 'c': 'vim_lsp',
+                \ 'python': 'vim_lsp',
+                \ }
+    NeoBundle 'liuchengxu/vista.vim'
+
+    """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
     " vim-lsp
     """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-    let g:lsp_signs_enabled = 1         " enable signs
+    let g:lsp_signs_enabled = 0         " enable signs
     let g:lsp_diagnostics_echo_cursor = 1 " enable echo under cursor when in normal mode
     NeoBundle 'prabirshrestha/asyncomplete.vim'
     NeoBundle 'prabirshrestha/async.vim'
@@ -221,7 +211,7 @@ let python_highlight_all=1
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "ale
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-NeoBundle 'w0rp/ale'
+"NeoBundle 'w0rp/ale'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "Syntastic
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -279,15 +269,6 @@ let g:vim_markdown_folding_disabled = 1
 NeoBundle 'godlygeek/tabular'
 NeoBundle 'plasticboy/vim-markdown'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" jedi-vim (python completion)
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-NeoBundle 'davidhalter/jedi-vim'
-let g:jedi#auto_initialization = 1
-let g:jedi#popup_on_dot = 0
-autocmd  FileType python let b:did_ftplugin = 1
-
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Vdebug debug intrface for python, php, ruby
@@ -371,7 +352,6 @@ filetype plugin indent on
 " this will conveniently prompt you to install them.
 NeoBundleCheck
 
-autocmd FileType python call SetupNeocomleteForPython()
 autocmd FileType c,cpp call SetupNeocomleteForCpp()
 autocmd FileType unite call s:unite_my_settings()
 
@@ -758,6 +738,15 @@ elseif executable('cquery')
                 \ 'root_uri': {server_info->lsp#utils#path_to_uri(lsp#utils#find_nearest_parent_file_directory(lsp#utils#get_buffer_path(), 'compile_commands.json'))},
                 \ 'initialization_options': { 'cacheDirectory': '/home/maxim/.cquery/cache/' },
                 \ 'whitelist': ['c', 'cpp', 'objc', 'objcpp'],
+                \ })
+endif
+
+if executable('rls')
+    au User lsp_setup call lsp#register_server({
+                \ 'name': 'rls',
+                \ 'cmd': {server_info->['rustup', 'run', 'stable', 'rls']},
+                \ 'workspace_config': {'rust': {'clippy_preference': 'on'}},
+                \ 'whitelist': ['rust'],
                 \ })
 endif
 
