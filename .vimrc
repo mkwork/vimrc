@@ -170,12 +170,6 @@ if version >= 703
 
 
     """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-    " switch impl/header
-    """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-    NeoBundle 'ericcurtin/CurtineIncSw.vim'
-    map <F4> :call CurtineIncSw()<CR>
-
-    """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
     "Unite (files search)
     """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
     NeoBundle 'Shougo/unite.vim'
@@ -266,6 +260,8 @@ let g:airline#extensions#keymap#enabled = 0
 " markdown
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:vim_markdown_folding_disabled = 1
+
+" required by vim-markdown
 NeoBundle 'godlygeek/tabular'
 NeoBundle 'plasticboy/vim-markdown'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -309,7 +305,7 @@ if executable('ag')
 endif
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"goyo.vim - for focusing
+"goyo.vim - for focusing (distraction free editing)
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 NeoBundle 'junegunn/goyo.vim'
 
@@ -328,7 +324,6 @@ NeoBundle 'vim-scripts/AnsiEsc.vim'
 
 " colorscheme pack
 NeoBundle 'flazz/vim-colorschemes'
-NeoBundle 'blueshirts/darcula'
 NeoBundle 'sainnhe/edge'
 
 "colorscheme converter
@@ -338,7 +333,7 @@ NeoBundle 'godlygeek/csapprox'
 "plantuml
 NeoBundle 'aklt/plantuml-syntax'
 
-" codi.vim - NasC replacement
+" codi.vim - NasC replacement (calculator)
 NeoBundle 'metakirby5/codi.vim'
 
 " Refer to |:NeoBundle-examples|.
@@ -708,7 +703,14 @@ let g:startify_session_persistence = 1
 set nocompatible
 
 
-if executable('pyls')
+if executable('pylsp')
+    " pip install python-language-server
+    au User lsp_setup call lsp#register_server({
+        \ 'name': 'pylsp',
+        \ 'cmd': {server_info->['pylsp']},
+        \ 'whitelist': ['python'],
+        \ })
+elseif executable('pyls')
     " pip install python-language-server
     au User lsp_setup call lsp#register_server({
         \ 'name': 'pyls',
