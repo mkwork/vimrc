@@ -430,17 +430,13 @@ set background=dark
 set noswapfile
 "colorscheme darcula
 
-let my_colorscheme = 'nord'
+let my_colorscheme = 'one'
+"let my_colorscheme = 'Tommorow'
 "let my_colorscheme = 'desertEx'
 "let my_colorscheme = 'gruvbox'
 
 if version >= 800
     set t_Co=256
-    "set t_8f=^[[38;2;%lu;%lu;%lum
-    "set t_8b=^[[48;2;%lu;%lu;%lum
-
-    "let &t_8f = "\<Esc>[38:2:%lu:%lu:%lum"
-    "let &t_8b = "\<Esc>[48:2:%lu:%lu:%lum"
     set t_ut=
 
     " Makes the background transparent. Leave these out if you're not using a transparent
