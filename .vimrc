@@ -29,6 +29,11 @@ call neobundle#begin(expand('~/.vim/bundle/'))
 
 NeoBundleFetch 'Shougo/neobundle.vim'
 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" echodoc
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+NeoBundle 'Shougo/echodoc.vim'
+
 " Too cool for centos6 out of box
 if version >= 703
 
@@ -38,9 +43,6 @@ if version >= 703
         nnoremap <leader>bb :exe 'AsyncRun' &mp<CR>
         let b:ale_linters = ['clangtidy']
         setlocal omnifunc=lsp#complete
-
-        EchoDocEnable
-        set cmdheight=2
 
         if !exists('g:deoplete#omni_patterns')
             let g:deoplete#omni_patterns = {}
