@@ -109,6 +109,11 @@ if version >= 703
     NeoBundle 'junegunn/fzf.vim'
 
     """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+    " one colorscheme
+    """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+    NeoBundle 'rakr/vim-one'
+
+    """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
     " echodoc
     """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
     NeoBundle 'Shougo/echodoc.vim'
@@ -170,12 +175,6 @@ if version >= 703
 
     NeoBundle 'dhruvasagar/vim-zoom'
 
-
-    """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-    " switch impl/header
-    """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-    NeoBundle 'ericcurtin/CurtineIncSw.vim'
-    map <F4> :call CurtineIncSw()<CR>
 
     """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
     "Unite (files search)
@@ -268,6 +267,8 @@ let g:airline#extensions#keymap#enabled = 0
 " markdown
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:vim_markdown_folding_disabled = 1
+
+" required by vim-markdown
 NeoBundle 'godlygeek/tabular'
 NeoBundle 'plasticboy/vim-markdown'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -311,7 +312,7 @@ if executable('ag')
 endif
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"goyo.vim - for focusing
+"goyo.vim - for focusing (distraction free editing)
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 NeoBundle 'junegunn/goyo.vim'
 
@@ -330,7 +331,6 @@ NeoBundle 'vim-scripts/AnsiEsc.vim'
 
 " colorscheme pack
 NeoBundle 'flazz/vim-colorschemes'
-NeoBundle 'blueshirts/darcula'
 NeoBundle 'sainnhe/edge'
 
 "colorscheme converter
@@ -340,7 +340,7 @@ NeoBundle 'godlygeek/csapprox'
 "plantuml
 NeoBundle 'aklt/plantuml-syntax'
 
-" codi.vim - NasC replacement
+" codi.vim - NasC replacement (calculator)
 NeoBundle 'metakirby5/codi.vim'
 
 " Refer to |:NeoBundle-examples|.
@@ -437,17 +437,13 @@ set background=dark
 set noswapfile
 "colorscheme darcula
 
-let my_colorscheme = 'nord'
+let my_colorscheme = 'one'
+"let my_colorscheme = 'Tommorow'
 "let my_colorscheme = 'desertEx'
 "let my_colorscheme = 'gruvbox'
 
 if version >= 800
     set t_Co=256
-    "set t_8f=^[[38;2;%lu;%lu;%lum
-    "set t_8b=^[[48;2;%lu;%lu;%lum
-
-    "let &t_8f = "\<Esc>[38:2:%lu:%lu:%lum"
-    "let &t_8b = "\<Esc>[48:2:%lu:%lu:%lum"
     set t_ut=
 
     " Makes the background transparent. Leave these out if you're not using a transparent
@@ -710,7 +706,14 @@ let g:startify_session_persistence = 1
 set nocompatible
 
 
-if executable('pyls')
+if executable('pylsp')
+    " pip install python-language-server
+    au User lsp_setup call lsp#register_server({
+        \ 'name': 'pylsp',
+        \ 'cmd': {server_info->['pylsp']},
+        \ 'whitelist': ['python'],
+        \ })
+elseif executable('pyls')
     " pip install python-language-server
     au User lsp_setup call lsp#register_server({
         \ 'name': 'pyls',
