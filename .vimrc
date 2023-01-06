@@ -39,9 +39,6 @@ if version >= 703
         let b:ale_linters = ['clangtidy']
         setlocal omnifunc=lsp#complete
 
-        EchoDocEnable
-        set cmdheight=2
-
         if !exists('g:deoplete#omni_patterns')
             let g:deoplete#omni_patterns = {}
         endif
@@ -105,11 +102,6 @@ if version >= 703
     """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
     NeoBundle 'junegunn/fzf'
     NeoBundle 'junegunn/fzf.vim'
-
-    """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-    " echodoc
-    """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-    NeoBundle 'Shougo/echodoc.vim'
 
     """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
     " transparent editing gpg files
