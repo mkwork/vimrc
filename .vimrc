@@ -141,6 +141,7 @@ if version >= 703
     NeoBundle 'prabirshrestha/asyncomplete.vim'
     NeoBundle 'prabirshrestha/async.vim'
     NeoBundle 'prabirshrestha/vim-lsp'
+    NeoBundle 'mattn/vim-lsp-settings'
     NeoBundle 'prabirshrestha/asyncomplete-lsp.vim'
     NeoBundle 'prabirshrestha/asyncomplete-buffer.vim'
     NeoBundle 'prabirshrestha/asyncomplete-file.vim'
@@ -719,6 +720,24 @@ elseif executable('pyls')
         \ 'name': 'pyls',
         \ 'cmd': {server_info->['pyls']},
         \ 'whitelist': ['python'],
+        \ })
+endif
+
+if executable('rust-analyzer')
+  au User lsp_setup call lsp#register_server({
+        \   'name': 'Rust Language Server',
+        \   'cmd': {server_info->['rust-analyzer']},
+        \   'whitelist': ['rust'],
+        \   'initialization_options': {
+        \     'cargo': {
+        \       'buildScripts': {
+        \         'enable': v:true,
+        \       },
+        \     },
+        \     'procMacro': {
+        \       'enable': v:true,
+        \     },
+        \   },
         \ })
 endif
 
